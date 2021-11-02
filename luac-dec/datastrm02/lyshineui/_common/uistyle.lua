@@ -1,0 +1,3379 @@
+local UIStyle = {}
+function UIStyle:Init()
+  self.TEXT_CASING_NORMAL = eUiTextCaseSetting_Normal
+  self.TEXT_CASING_LOWER = eUiTextCaseSetting_Lower
+  self.TEXT_CASING_UPPER = eUiTextCaseSetting_Upper
+  self.TEXT_HALIGN_LEFT = eUiHAlign_Left
+  self.TEXT_HALIGN_CENTER = eUiHAlign_Center
+  self.TEXT_HALIGN_RIGHT = eUiHAlign_Right
+  self.TEXT_VALIGN_TOP = eUiVAlign_Top
+  self.TEXT_VALIGN_CENTER = eUiVAlign_Center
+  self.TEXT_VALIGN_BOTTOM = eUiVAlign_Bottom
+  self.TEXT_OVERFLOW_MODE_OVERFLOW = eUiTextOverflowMode_OverflowText
+  self.TEXT_OVERFLOW_MODE_CLIP = eUiTextOverflowMode_ClipText
+  self.TEXT_OVERFLOW_MODE_ELLISPSIS = eUiTextOverflowMode_Ellipsis
+  self.TEXT_WRAP_SETTING_NO_WRAP = eUiTextWrapTextSetting_NoWrap
+  self.TEXT_WRAP_SETTING_WRAP = eUiTextWrapTextSetting_Wrap
+  self.TEXT_SHRINK_TO_FIT_NONE = eUiTextShrinkToFit_None
+  self.TEXT_SHRINK_TO_FIT_UNIFORM = eUiTextShrinkToFit_Uniform
+  self.TEXT_SHRINK_TO_FIT_WIDTH_ONLY = eUiTextShrinkToFit_WidthOnly
+  self.COLOR_ARRAY = ColorRgba(137, 129, 110, 1)
+  self.COLOR_WHITE = ColorRgba(255, 255, 255, 1)
+  self.COLOR_BLACK = ColorRgba(0, 0, 0, 1)
+  self.COLOR_TAN = ColorRgba(158, 148, 126, 1)
+  self.COLOR_TAN_DARK = ColorRgba(84, 78, 66, 1)
+  self.COLOR_TAN_DARKER = ColorRgba(67, 63, 52, 1)
+  self.COLOR_TAN_MEDIUM = ColorRgba(98, 96, 84, 1)
+  self.COLOR_TAN_LIGHT = ColorRgba(255, 241, 206, 1)
+  self.COLOR_TAN_MEDIUM_LIGHTER = ColorRgba(204, 189, 162, 1)
+  self.COLOR_TAN_MEDIUM_LIGHT = ColorRgba(174, 171, 157, 1)
+  self.COLOR_TAN_MEDIUM_DARK = ColorRgba(101, 83, 51, 1)
+  self.COLOR_RED = ColorRgba(255, 46, 46, 1)
+  self.COLOR_RED_MEDIUM = ColorRgba(242, 93, 93, 1)
+  self.COLOR_RED_LIGHT = ColorRgba(255, 147, 147, 1)
+  self.COLOR_RED_DARK = ColorRgba(201, 32, 32, 1)
+  self.COLOR_RED_DARKER = ColorRgba(102, 18, 18, 1)
+  self.COLOR_RED_DEEP = ColorRgba(72, 12, 12, 1)
+  self.COLOR_ORANGE_BRIGHT = ColorRgba(246, 120, 23, 1)
+  self.COLOR_ORANGE_BRIGHTER = ColorRgba(255, 183, 23, 1)
+  self.COLOR_ORANGE = ColorRgba(177, 94, 30, 1)
+  self.COLOR_ORANGE_DARK = ColorRgba(99, 49, 12, 1)
+  self.COLOR_MAROON = ColorRgba(133, 37, 37, 1)
+  self.COLOR_GRAY_90_ALPHA = ColorRgba(221, 221, 221, 0.5)
+  self.COLOR_GRAY_90 = ColorRgba(221, 221, 221, 1)
+  self.COLOR_GRAY_80 = ColorRgba(204, 204, 204, 1)
+  self.COLOR_GRAY_70 = ColorRgba(170, 170, 170, 1)
+  self.COLOR_GRAY_60 = ColorRgba(153, 153, 153, 1)
+  self.COLOR_GRAY_50 = ColorRgba(128, 128, 128, 1)
+  self.COLOR_GRAY_40 = ColorRgba(102, 102, 102, 1)
+  self.COLOR_GRAY_30 = ColorRgba(76, 76, 76, 1)
+  self.COLOR_GRAY_20 = ColorRgba(51, 51, 51, 1)
+  self.COLOR_YELLOW = ColorRgba(255, 212, 95, 1)
+  self.COLOR_YELLOW_MUTED = ColorRgba(226, 164, 56, 1)
+  self.COLOR_YELLOW_GOLD = ColorRgba(237, 198, 62, 1)
+  self.COLOR_BRIGHT_YELLOW = ColorRgba(255, 234, 0, 1)
+  self.COLOR_YELLOW_LIGHT = ColorRgba(255, 226, 148, 1)
+  self.COLOR_YELLOW_MEDIUM = ColorRgba(226, 153, 22, 1)
+  self.COLOR_YELLOW_DARK = ColorRgba(197, 129, 22, 1)
+  self.COLOR_YELLOW_DARKER = ColorRgba(63, 46, 17, 1)
+  self.COLOR_YELLOW_MSQ = ColorRgba(255, 255, 109, 1)
+  self.COLOR_YELLOW_ORANGE = ColorRgba(255, 160, 69, 1)
+  self.COLOR_GREEN = ColorRgba(48, 229, 171, 1)
+  self.COLOR_GREEN_40 = ColorRgba(19, 91, 68, 1)
+  self.COLOR_GREEN_BRIGHT = ColorRgba(0, 255, 180, 1)
+  self.COLOR_GREEN_MEDIUM_LITE = ColorRgba(30, 134, 81, 1)
+  self.COLOR_GREEN_LIGHT = ColorRgba(118, 255, 215, 1)
+  self.COLOR_GREEN_MEDIUM = ColorRgba(54, 191, 147, 1)
+  self.COLOR_GREEN_DARK = ColorRgba(65, 112, 97, 1)
+  self.COLOR_PURPLE = ColorRgba(181, 108, 249, 1)
+  self.COLOR_LAVENDER = ColorRgba(166, 90, 206, 1)
+  self.COLOR_MAGENTA = ColorRgba(223, 80, 184, 1)
+  self.COLOR_BLUE_MEDIUM = ColorRgba(48, 189, 229, 1)
+  self.COLOR_BLUE = ColorRgba(45, 89, 220, 1)
+  self.COLOR_BLUE_DARK = ColorRgba(44, 55, 113, 1)
+  self.COLOR_TEAL = ColorRgba(69, 209, 255, 1)
+  self.COLOR_SKYBLUE = ColorRgba(112, 210, 228, 1)
+  self.COLOR_BUILDMODE_RED = ColorRgba(255, 75, 75, 1)
+  self.COLOR_AMAZON_ORANGE = ColorRgba(255, 153, 0, 1)
+  self.COLOR_BROWN_DARK = ColorRgba(66, 64, 56, 1)
+  self.COLOR_PEACH = ColorRgba(255, 127, 80, 1)
+  self.COLOR_DARKER_ORANGE = ColorRgba(31, 26, 19, 1)
+  self.COLOR_DARK_ORANGE = ColorRgba(44, 37, 27, 1)
+  self.COLOR_MEDIUM_DARK_ORANGE_70 = ColorRgba(58, 46, 17, 1)
+  self.COLOR_MEDIUM_DARK_ORANGE = ColorRgba(83, 66, 25, 1)
+  self.COLOR_MEDIUM_ORANGE_UNFOCUSED = ColorRgba(115, 93, 35, 1)
+  self.COLOR_MEDIUM_ORANGE_FOCUSED = ColorRgba(149, 121, 45, 1)
+  self.COLOR_MEDIUM_ORANGE = ColorRgba(192, 155, 59, 1)
+  self.COLOR_BRIGHT_ORANGE = ColorRgba(255, 187, 40, 1)
+  self.COLOR_GRAY_DARK = ColorRgba(30, 30, 30, 1)
+  self.COLOR_GRAY_MEDIUM_DARK = ColorRgba(100, 100, 100, 1)
+  self.COLOR_RED_BLOCKED = ColorRgba(100, 28, 9, 1)
+  self.COLOR_RED_BLOCKED_BRIGHT = ColorRgba(180, 47, 14, 1)
+  self.COLOR_ORANGE_SCROLLBAR = ColorRgba(220, 153, 0, 1)
+  self.COLOR_ORANGE_SCROLLBAR_FOCUS = ColorRgba(240, 173, 20, 1)
+  self.COLOR_RARITY_GRAY = ColorRgba(200, 200, 200, 1)
+  self.COLOR_RARITY_GREEN = ColorRgba(7, 191, 46, 1)
+  self.COLOR_RARITY_BLUE = ColorRgba(0, 203, 233, 1)
+  self.COLOR_RARITY_PURPLE = ColorRgba(255, 22, 247, 1)
+  self.COLOR_RARITY_ORANGE = ColorRgba(255, 135, 23, 1)
+  self.COLOR_RARITY_LEVEL_0 = self.COLOR_RARITY_GRAY
+  self.COLOR_RARITY_LEVEL_0_BG = ColorRgba(97, 97, 97, 1)
+  self.COLOR_RARITY_LEVEL_0_BRIGHT = self.COLOR_WHITE
+  self.COLOR_RARITY_LEVEL_0_LIGHT = self.COLOR_GRAY_90
+  self.COLOR_RARITY_LEVEL_1 = self.COLOR_RARITY_GREEN
+  self.COLOR_RARITY_LEVEL_1_BG = ColorRgba(56, 124, 37, 1)
+  self.COLOR_RARITY_LEVEL_1_BRIGHT = ColorRgba(43, 255, 88, 1)
+  self.COLOR_RARITY_LEVEL_1_LIGHT = ColorRgba(145, 255, 168, 1)
+  self.COLOR_RARITY_LEVEL_2 = self.COLOR_RARITY_BLUE
+  self.COLOR_RARITY_LEVEL_2_BG = ColorRgba(21, 163, 197, 1)
+  self.COLOR_RARITY_LEVEL_2_BRIGHT = ColorRgba(37, 211, 255, 1)
+  self.COLOR_RARITY_LEVEL_2_LIGHT = ColorRgba(146, 241, 255, 1)
+  self.COLOR_RARITY_LEVEL_3 = self.COLOR_RARITY_PURPLE
+  self.COLOR_RARITY_LEVEL_3_BG = ColorRgba(188, 41, 158, 1)
+  self.COLOR_RARITY_LEVEL_3_BRIGHT = ColorRgba(229, 83, 255, 1)
+  self.COLOR_RARITY_LEVEL_3_LIGHT = ColorRgba(255, 191, 253, 1)
+  self.COLOR_RARITY_LEVEL_4 = self.COLOR_RARITY_ORANGE
+  self.COLOR_RARITY_LEVEL_4_BG = ColorRgba(246, 120, 23, 1)
+  self.COLOR_RARITY_LEVEL_4_BRIGHT = ColorRgba(255, 179, 60, 1)
+  self.COLOR_RARITY_LEVEL_4_LIGHT = ColorRgba(255, 207, 138, 1)
+  self.COLOR_MASTERY = ColorRgba(124, 209, 254, 1)
+  self.COLOR_MASTERY_DARK = ColorRgba(60, 98, 118, 1)
+  self.COLOR_TRADESKILL = ColorRgba(247, 124, 63, 1)
+  self.COLOR_TRADESKILL_DARK = ColorRgba(160, 75, 38, 1)
+  self.COLOR_XP = ColorRgba(255, 211, 78, 1)
+  self.COLOR_XP_DARK = self.COLOR_YELLOW_DARK
+  self.COLOR_STANDING = ColorRgba(158, 201, 158, 1)
+  self.COLOR_WARBOARD_VICTORY = ColorRgba(0, 184, 41, 1)
+  self.COLOR_WARBOARD_DEFEAT = ColorRgba(255, 113, 113, 1)
+  self.COLOR_TOOLTIP_GRAY = ColorRgba(220, 220, 220, 1)
+  self.COLOR_TOOLTIP_GRAY_STATS = ColorRgba(180, 180, 180, 1)
+  self.COLOR_TOOLTIP_BLUE = ColorRgba(57, 150, 255, 1)
+  self.COLOR_TOOLTIP_BLUE_DESCRIPTION = ColorRgba(0, 114, 187, 1)
+  self.COLOR_TOOLTIP_COMMAND_BG = ColorRgba(42, 42, 42, 1)
+  self.COLOR_TOOLTIP_GRAY_DARK = ColorRgba(108, 108, 108, 1)
+  self.COLOR_TOOLTIP_OUTER_FRAME = ColorRgba(160, 152, 87, 1)
+  self.COLOR_TOOLTIP_RARITY_LEVEL_0 = ColorRgba(200, 200, 200, 1)
+  self.COLOR_TOOLTIP_RARITY_LEVEL_1 = ColorRgba(39, 255, 90, 1)
+  self.COLOR_TOOLTIP_RARITY_LEVEL_2 = ColorRgba(30, 255, 255, 1)
+  self.COLOR_TOOLTIP_RARITY_LEVEL_3 = ColorRgba(255, 86, 255, 1)
+  self.COLOR_TOOLTIP_RARITY_LEVEL_4 = ColorRgba(255, 160, 30, 1)
+  self.COLOR_TAN_HEADER_SECONDARY = ColorRgba(204, 191, 163, 1)
+  self.COLOR_FLAVOR_TEXT = ColorRgba(214, 194, 150, 1)
+  self.COLOR_QUESTION_MARK = ColorRgba(255, 170, 0, 1)
+  self.COLOR_PERK_SELECTION_HEADER_TAN = ColorRgba(185, 174, 143, 1)
+  self.COLOR_DUEL_BLUE = ColorRgba(40, 216, 243, 1)
+  self.COLOR_DUEL_RED = ColorRgba(255, 46, 46, 1)
+  self.COLOR_TAN_INVENTORY_TITLE = ColorRgba(204, 191, 163, 1)
+  self.COLOR_SLIDER_FRAME_ORANGE = ColorRgba(203, 165, 25, 1)
+  self.COLOR_SLIDER_TEXTURE_ORANGE = ColorRgba(255, 210, 21, 1)
+  self.COLOR_TYPE_LEVEL_WORN = self.COLOR_GRAY_30
+  self.COLOR_TYPE_LEVEL_1 = self.COLOR_GRAY_50
+  self.COLOR_TYPE_LEVEL_2 = self.COLOR_GRAY_60
+  self.COLOR_TYPE_LEVEL_3 = self.COLOR_GRAY_70
+  self.COLOR_TYPE_LEVEL_4 = self.COLOR_GRAY_80
+  self.COLOR_TYPE_LEVEL_5 = self.COLOR_GRAY_90
+  self.COLOR_HOUSING_HUD_BUTTON = ColorRgba(31, 29, 26, 1)
+  self.COLOR_HOUSING_HUD_BUTTON_TEXT = ColorRgba(208, 199, 181, 1)
+  self.COLOR_HOUSING_HUD_BUTTON_DISABLED = ColorRgba(46, 19, 19, 1)
+  self.COLOR_HOUSING_DECORATION_TROPHIES = ColorRgba(213, 185, 109, 1)
+  self.COLOR_RARITY_LEVEL_0_Q0 = self.COLOR_RED_DARK
+  self.COLOR_RARITY_LEVEL_1_Q0 = self.COLOR_RED_DARK
+  self.COLOR_RARITY_LEVEL_2_Q0 = self.COLOR_RED_DARK
+  self.COLOR_RARITY_LEVEL_3_Q0 = self.COLOR_RED_DARK
+  self.COLOR_RARITY_LEVEL_0_Q1 = ColorRgba(190, 190, 190, 1)
+  self.COLOR_RARITY_LEVEL_1_Q1 = ColorRgba(7, 170, 65, 1)
+  self.COLOR_RARITY_LEVEL_2_Q1 = ColorRgba(0, 163, 239, 1)
+  self.COLOR_RARITY_LEVEL_3_Q1 = ColorRgba(255, 0, 246, 1)
+  self.COLOR_RARITY_LEVEL_0_Q2 = ColorRgba(153, 153, 153, 1)
+  self.COLOR_RARITY_LEVEL_1_Q2 = ColorRgba(25, 179, 79, 1)
+  self.COLOR_RARITY_LEVEL_2_Q2 = ColorRgba(24, 134, 163, 1)
+  self.COLOR_RARITY_LEVEL_3_Q2 = ColorRgba(214, 43, 208, 1)
+  self.COLOR_RARITY_LEVEL_0_Q3 = ColorRgba(166, 166, 166, 1)
+  self.COLOR_RARITY_LEVEL_1_Q3 = ColorRgba(46, 191, 97, 1)
+  self.COLOR_RARITY_LEVEL_2_Q3 = ColorRgba(28, 148, 180, 1)
+  self.COLOR_RARITY_LEVEL_3_Q3 = ColorRgba(224, 67, 219, 1)
+  self.COLOR_RARITY_LEVEL_0_Q4 = ColorRgba(179, 179, 179, 1)
+  self.COLOR_RARITY_LEVEL_1_Q4 = ColorRgba(69, 204, 116, 1)
+  self.COLOR_RARITY_LEVEL_2_Q4 = ColorRgba(29, 158, 192, 1)
+  self.COLOR_RARITY_LEVEL_3_Q4 = ColorRgba(235, 94, 230, 1)
+  self.COLOR_RARITY_LEVEL_0_Q5 = ColorRgba(191, 191, 191, 1)
+  self.COLOR_RARITY_LEVEL_1_Q5 = ColorRgba(108, 217, 146, 1)
+  self.COLOR_RARITY_LEVEL_2_Q5 = ColorRgba(31, 165, 200, 1)
+  self.COLOR_RARITY_LEVEL_3_Q5 = ColorRgba(247, 124, 243, 1)
+  self.COLOR_CONQUEST_YELLOW = ColorRgba(255, 233, 164, 1)
+  self.COLOR_CONQUEST_RED = ColorRgba(255, 74, 74, 1)
+  self.COLOR_CONQUEST_BLUE = ColorRgba(55, 150, 223, 1)
+  self.COLOR_WAR_PHASE_SCOUTING = ColorRgba(205, 205, 205, 1)
+  self.COLOR_WAR_PHASE_BATTLE = ColorRgba(230, 140, 70, 1)
+  self.COLOR_WAR_PHASE_CONQUEST = ColorRgba(255, 45, 45, 1)
+  self.COLOR_WAR_PHASE_CONQUEST_DEFEND = ColorRgba(51, 105, 147, 1)
+  self.COLOR_WAR_PHASE_RESOLUTION = ColorRgba(190, 190, 60, 1)
+  self.COLOR_WAR_PHASE_SCOUTING_DARK = ColorRgba(136, 111, 59, 1)
+  self.COLOR_WAR_PHASE_BATTLE_DARK = ColorRgba(122, 36, 14, 1)
+  self.COLOR_WAR_PHASE_CONQUEST_DARK = ColorRgba(114, 7, 7, 1)
+  self.COLOR_WAR_PHASE_CONQUEST_DEFEND_DARK = ColorRgba(17, 73, 116, 1)
+  self.COLOR_WAR_PHASE_RESOLUTION_DARK = ColorRgba(114, 114, 7, 1)
+  self.COLOR_WARNING_ENCUMBERED = self.COLOR_RED
+  self.COLOR_WARNING_ALMOST_ENCUMBERED = self.COLOR_YELLOW
+  self.COLOR_TERRITORY_WAR_ZONE = ColorRgba(196, 139, 40, 1)
+  self.COLOR_TERRITORY_UNCLAIMED = self.COLOR_WHITE
+  self.COLOR_TERRITORY_WAR_MYCOMPANY = ColorRgba(93, 122, 3, 1)
+  self.COLOR_TERRITORY_WAR_ENEMY = ColorRgba(287, 20, 20, 1)
+  self.COLOR_TAN_DARK_NONUM = ColorRgba(84, 78, 66, 0.8)
+  self.COLOR_TAN_STANDING_BONUS_MESSAGE = ColorRgba(190, 180, 158, 1)
+  self.COLOR_TAN_STANDING_BONUS_SUBHEADER = ColorRgba(166, 154, 127, 1)
+  self.COLOR_INPUT_BG = ColorRgba(70, 70, 70, 0.8)
+  self.COLOR_INPUT_SELECTION = self.COLOR_GRAY_30
+  self.COLOR_NAMEPLATE_PRE_WAR = self.COLOR_WAR_PHASE_SCOUTING
+  self.COLOR_NAMEPLATE_WAR = self.COLOR_RED_LIGHT
+  self.COLOR_NAMEPLATE_GROUP = ColorRgba(174, 210, 255, 1)
+  self.COLOR_NAMEPLATE_GUILD = ColorRgba(133, 231, 76, 1)
+  self.COLOR_NAMEPLATE_TARGET_CRIMINAL_INTENT_OFF = self.COLOR_WHITE
+  self.COLOR_NAMEPLATE_TARGET_CRIMINAL_INTENT_ON = ColorRgba(255, 195, 33, 1)
+  self.COLOR_NAMEPLATE_DEFAULT = self.COLOR_WHITE
+  self.COLOR_HEALTHBAR_WAR = self.COLOR_RED_LIGHT
+  self.COLOR_HEALTHBAR_GROUP = ColorRgba(60, 174, 241, 1)
+  self.COLOR_HEALTHBAR_GUILD = self.COLOR_NAMEPLATE_GUILD
+  self.COLOR_HEALTHBAR_PVP = self.COLOR_RED_LIGHT
+  self.COLOR_HEALTHBAR_PVP_FRIENDLY = self.COLOR_HEALTHBAR_GROUP
+  self.COLOR_HEALTHBAR_DEFAULT = self.COLOR_WHITE
+  self.COLOR_VITAL_EMPTY = self.COLOR_RED_DARK
+  self.COLOR_FOOD_AND_DRINK_REFILL = self.COLOR_GREEN_BRIGHT
+  self.COLOR_HEALTH_DEPLETE_START = self.COLOR_WHITE
+  self.COLOR_STAMINA_DEPLETE_START = ColorRgba(216, 227, 255, 1)
+  self.COLOR_MANA_DEPLETE_START = ColorRgba(240, 226, 255, 1)
+  self.COLOR_PLAYER_HEALTH_FULL = self.COLOR_WHITE
+  self.COLOR_PLAYER_HEALTH_NOT_FULL = self.COLOR_RED_DARK
+  self.COLOR_NAMEPLATE_HEALING = self.COLOR_GREEN
+  self.COLOR_NAMEPLATE_DAMAGE = self.COLOR_WHITE
+  self.COLOR_NAMEPLATE_HEADSHOT = self.COLOR_ORANGE_BRIGHT
+  self.COLOR_NAMEPLATE_WEAKNESS = self.COLOR_YELLOW
+  self.COLOR_NAMEPLATE_STRENGTH = ColorRgba(0, 213, 255, 1)
+  self.COLOR_NAMEPLATE_DAMAGE_PLAYER = self.COLOR_RED
+  self.COLOR_CHAT_GLOBAL = self.COLOR_WHITE
+  self.COLOR_CHAT_AREA = ColorRgba(238, 214, 155, 1)
+  self.COLOR_CHAT_HELP = ColorRgba(255, 157, 62, 1)
+  self.COLOR_CHAT_RECRUITMENT = ColorRgba(230, 219, 52, 1)
+  self.COLOR_CHAT_GROUP = self.COLOR_NAMEPLATE_GROUP
+  self.COLOR_CHAT_RAID = ColorRgba(110, 148, 255, 1)
+  self.COLOR_CHAT_COMPANY = self.COLOR_NAMEPLATE_GUILD
+  self.COLOR_CHAT_FACTION = self.COLOR_GRAY_60
+  self.COLOR_CHAT_CONSUL = ColorRgba(0, 255, 198, 1)
+  self.COLOR_CHAT_DIRECT = ColorRgba(128, 234, 243, 1)
+  self.COLOR_CHAT_GM = self.COLOR_AMAZON_ORANGE
+  self.COLOR_INSUFFICIENT_QUANTITY = ColorRgba(242, 93, 93, 1)
+  self.COLOR_SUFFICIENT_QUANTITY = ColorRgba(61, 247, 162, 1)
+  self.COLOR_GREEN_ONLINE = ColorRgba(82, 221, 151, 1)
+  self.COLOR_RED_OFFLINE = ColorRgba(294, 31, 31, 1)
+  self.COLOR_PROTECTION_RED = ColorRgba(255, 142, 134, 1)
+  self.COLOR_PROTECTION_YELLOW = ColorRgba(255, 252, 200, 1)
+  self.COLOR_TWITCH_PURPLE = ColorRgba(100, 65, 164, 1)
+  self.COLOR_TWITCH_PURPLE_LIGHT = ColorRgba(131, 90, 205, 1)
+  self.COLOR_TWITCH_PURPLE_DARK = ColorRgba(50, 32, 82, 1)
+  self.COLOR_SORT_BUTTON_DESELECTED = self.COLOR_TAN
+  self.COLOR_SORT_BUTTON_SELECTED = self.COLOR_WHITE
+  self.COLOR_SORT_BUTTON_HIGHLIGHTED = self.COLOR_WHITE
+  self.COLOR_TRADE_ENTRY_ENABLED = self.COLOR_TAN
+  self.COLOR_TRADE_ENTRY_DISABLED = self.COLOR_TAN_DARK
+  self.COLOR_TRADE_ENTRY_HIGHLIGHTED = self.COLOR_WHITE
+  self.COLOR_BUTTON_SIMPLE_CTA = self.COLOR_YELLOW_GOLD
+  self.COLOR_BUTTON_SIMPLE_TRADE = self.COLOR_GREEN
+  self.BUTTON_SIMPLE_CTA_OPACITY = 0.8
+  self.COLOR_TOGGLEON = ColorRgba(34, 34, 34, 1)
+  self.COLOR_TOGGLEOFF = ColorRgba(34, 34, 34, 1)
+  self.COLOR_TAN_DARK_NONUMBER = ColorRgba(85, 0, 0, 1)
+  self.COLOR_BANNER_GLOW_ORANGE = ColorRgba(225, 117, 0, 1)
+  self.COLOR_BANNER_GLOW_RED = ColorRgba(225, 0, 0, 1)
+  self.COLOR_BANNER_GLOW_BLUE = ColorRgba(22, 132, 213, 1)
+  self.COLOR_BANNER_RUNE_A_ORANGE = ColorRgba(102, 60, 11, 1)
+  self.COLOR_BANNER_RUNE_B_ORANGE = ColorRgba(130, 76, 13, 1)
+  self.COLOR_BANNER_RUNE_C_ORANGE = ColorRgba(178, 103, 17, 1)
+  self.COLOR_BANNER_RUNE_B_RED = ColorRgba(231, 26, 26, 1)
+  self.COLOR_BANNER_RUNE_A_BLUE = ColorRgba(31, 95, 128, 1)
+  self.COLOR_BANNER_RUNE_B_BLUE = ColorRgba(73, 165, 212, 1)
+  self.COLOR_BANNER_RUNE_C_BLUE = ColorRgba(73, 165, 212, 1)
+  self.COLOR_GROUP_MEMBERS = {
+    self.COLOR_YELLOW,
+    self.COLOR_PURPLE,
+    self.COLOR_PEACH,
+    self.COLOR_GREEN,
+    self.COLOR_MAGENTA
+  }
+  self.COLOR_COMPARE_BETTER = self.COLOR_GREEN
+  self.COLOR_COMPARE_WORSE = self.COLOR_RED_MEDIUM
+  self.COLOR_COMPARE_EVEN = self.COLOR_WHITE
+  self.COLOR_TEXT_LINK = self.COLOR_YELLOW
+  self.COLOR_TEXT_LINK_HOVER = self.COLOR_YELLOW_LIGHT
+  self.COLOR_MISSION_GATHER = self.COLOR_GRAY_70
+  self.COLOR_MISSION_KILL = self.COLOR_RED_LIGHT
+  self.COLOR_MISSION_EXPLORE = self.COLOR_SKYBLUE
+  self.COLOR_MISSION_CREATIVE = self.COLOR_TWITCH_PURPLE_LIGHT
+  self.COLOR_MISSION_COURIER = ColorRgba(157, 151, 79, 1)
+  self.COLOR_MISSION_RAID = self.COLOR_PEACH
+  self.COLOR_MISSION_LOOT = self.COLOR_GREEN_LIGHT
+  self.COLOR_MISSION_HUNT = self.COLOR_TAN_LIGHT
+  self.COLOR_MISSION_FISH = self.COLOR_blue
+  self.COLOR_MISSION_MINE = self.COLOR_GREEN
+  self.COLOR_MISSION_HARVEST = self.COLOR_ORANGE_BRIGHT
+  self.COLOR_MISSION_LOG = self.COLOR_TAN_MEDIUM_LIGHT
+  self.COLOR_MISSION_CRAFT = self.COLOR_YELLOW_GOLD
+  self.COLOR_MISSION_ESPIONAGE = self.COLOR_RED_LIGHT
+  self.COLOR_MISSION_INTERCEPT = self.COLOR_SKYBLUE
+  self.COLOR_MISSION_CONTROL = self.COLOR_TWITCH_PURPLE_LIGHT
+  self.COLOR_MISSION_POACH = self.COLOR_YELLOW_LIGHT
+  self.COLOR_TOWN_PROJECT = ColorRgba(83, 250, 255, 1)
+  self.COLOR_DIFFICULTY_0 = self.COLOR_GRAY_60
+  self.COLOR_DIFFICULTY_1 = self.COLOR_GREEN
+  self.COLOR_DIFFICULTY_2 = self.COLOR_ORANGE
+  self.COLOR_DIFFICULTY_3 = self.COLOR_RED_MEDIUM
+  self.COLOR_FACTION_ORANGE = ColorRgba(235, 159, 13, 1)
+  self.COLOR_FACTION_PURPLE = ColorRgba(140, 55, 217, 1)
+  self.COLOR_FACTION_GREEN = ColorRgba(20, 152, 52, 1)
+  self.COLOR_FACTION_BG_1 = self.COLOR_FACTION_PURPLE
+  self.COLOR_FACTION_BG_2 = self.COLOR_FACTION_GREEN
+  self.COLOR_FACTION_BG_3 = self.COLOR_FACTION_ORANGE
+  self.COLOR_FACTION_FG_1 = self.COLOR_WHITE
+  self.COLOR_FACTION_FG_2 = self.COLOR_WHITE
+  self.COLOR_FACTION_FG_3 = self.COLOR_WHITE
+  self.COLOR_FACTION_CHAT_1 = ColorRgba(169, 97, 234, 1)
+  self.COLOR_FACTION_CHAT_2 = self.COLOR_FACTION_GREEN
+  self.COLOR_FACTION_CHAT_3 = self.COLOR_FACTION_ORANGE
+  self.COLOR_FACTION_BG_LIGHT_1 = ColorRgba(194, 134, 248, 1)
+  self.COLOR_FACTION_BG_LIGHT_2 = ColorRgba(75, 216, 109, 1)
+  self.COLOR_FACTION_BG_LIGHT_3 = ColorRgba(255, 189, 67, 1)
+  self.COLOR_FACTION_BG_DARK_1 = ColorRgba(108, 53, 158, 1)
+  self.COLOR_FACTION_BG_DARK_2 = ColorRgba(30, 114, 50, 1)
+  self.COLOR_FACTION_BG_DARK_3 = ColorRgba(176, 121, 15, 1)
+  self.COLOR_ABILITY_COOLDOWN = self.COLOR_YELLOW_MEDIUM
+  self.COLOR_ATTRIBUTE_POINT_COMMITTED = self.COLOR_YELLOW
+  self.COLOR_ATTRIBUTE_POINT_EQUIPMENT = self.COLOR_BLUE_MEDIUM
+  self.COLOR_ATTRIBUTE_POINT_BUFFS = self.COLOR_LAVENDER
+  self.COLOR_ATTRIBUTE_POINT_PENDING = self.COLOR_GREEN
+  self.COLOR_CONTESTED_RED = ColorRgba(235, 78, 62, 1)
+  self.COLOR_POPULATION_LOW = self.COLOR_GREEN
+  self.COLOR_POPULATION_MEDIUM = self.COLOR_YELLOW
+  self.COLOR_POPULATION_HIGH = self.COLOR_RED_MEDIUM
+  self.COLOR_STORE_LIMITED_TIME_OFFER = ColorRgba(255, 192, 0, 1)
+  self.COLOR_TAX_LEVEL_1 = ColorRgba(91, 222, 171, 1)
+  self.COLOR_TAX_LEVEL_2 = ColorRgba(166, 235, 142, 1)
+  self.COLOR_TAX_LEVEL_3 = ColorRgba(220, 225, 184, 1)
+  self.COLOR_TAX_LEVEL_4 = ColorRgba(231, 161, 114, 1)
+  self.COLOR_TAX_LEVEL_5 = ColorRgba(241, 132, 132, 1)
+  self.COLOR_TAX_LEVEL_6 = ColorRgba(234, 90, 90, 1)
+  self.COLOR_SURVEY_1 = ColorRgba(242, 93, 93, 1)
+  self.COLOR_SURVEY_2 = ColorRgba(255, 135, 23, 1)
+  self.COLOR_SURVEY_3 = ColorRgba(192, 155, 59, 1)
+  self.COLOR_SURVEY_4 = ColorRgba(133, 231, 76, 1)
+  self.COLOR_SURVEY_5 = ColorRgba(166, 235, 142, 1)
+  self.FONT_FAMILY_CASLON = "LyShineUI\\fonts\\caslonant.font"
+  self.FONT_FAMILY_CASLON_NO_RERENDER = "LyShineUI\\fonts\\caslonantnorerender.font"
+  self.FONT_FAMILY_NIMBUS_REGULAR = "LyShineUI\\fonts\\nimbus_regular.font"
+  self.FONT_FAMILY_NIMBUS_REGULAR_NO_RERENDER = "LyShineUI\\fonts\\nimbus_regular_norerender.font"
+  self.FONT_FAMILY_NIMBUS_REGULAR_ITALIC = "LyShineUI\\fonts\\nimbus_regular_italic.font"
+  self.FONT_FAMILY_NIMBUS_MEDIUM = "LyShineUI\\fonts\\nimbus_medium.font"
+  self.FONT_FAMILY_NIMBUS_BOLD = "LyShineUI\\fonts\\nimbus_bold.font"
+  self.FONT_FAMILY_NIMBUS_BOLD_ITALIC = "LyShineUI\\fonts\\nimbus_bold_italic.font"
+  self.FONT_FAMILY_NIMBUS_SEMIBOLD = "LyShineUI\\fonts\\nimbus_semibold.font"
+  self.FONT_FAMILY_NIMBUS_CONDENSED_REGULAR = "LyShineUI\\fonts\\nimbus_condensed_regular.font"
+  self.FONT_FAMILY_NIMBUS_CONDENSED_REGULAR_ITALIC = "LyShineUI\\fonts\\nimbus_condensed_regular_italic.font"
+  self.FONT_FAMILY_NIMBUS_CONDENSED_BOLD = "LyShineUI\\fonts\\nimbus_condensed_bold.font"
+  self.FONT_FAMILY_NIMBUS_CONDENSED_BOLD_ITALIC = "LyShineUI\\fonts\\nimbus_condensed_bold_italic.font"
+  self.FONT_FAMILY_PICA = "LyShineUI\\fonts\\pica_regular.font"
+  self.FONT_FAMILY_PICA_ITALIC = "LyShineUI\\fonts\\pica_italic.font"
+  self.FONT_SIZE_HEADER = 38
+  self.FONT_SIZE_HEADER_SECONDARY = 23
+  self.FONT_SIZE_HEADER_SMALL_CAPS = 44
+  self.FONT_SIZE_SUBHEADER = 24
+  self.FONT_SIZE_NAME = 26
+  self.FONT_SIZE_PRIMARY_TITLE = 28
+  self.FONT_SIZE_FRAME_HEADER = 32
+  self.FONT_SIZE_FRAME_HEADER_LARGE = 60
+  self.FONT_SIZE_FRAME_SUBHEADER = 28
+  self.FONT_SIZE_TITLE = 30
+  self.FONT_SIZE_TITLE_GENERIC = 28
+  self.FONT_SIZE_TITLE_GENERIC_SMALL = 23
+  self.FONT_SIZE_BODY = 28
+  self.FONT_SIZE_BODY_NEW = 23
+  self.FONT_SIZE_OBJECTIVE_TIMER = 20
+  self.FONT_SIZE_BUTTON = 26
+  self.FONT_SIZE_BUTTON_STYLE_3 = 30
+  self.FONT_SIZE_BUTTON_HERO = 30
+  self.FONT_SIZE_BUTTON_MEDIUM = 26
+  self.FONT_SIZE_BUTTON_PREFIX = 14
+  self.FONT_SIZE_BUTTON_TOGGLE = 28
+  self.FONT_SIZE_BUTTON_SIMPLE = 20
+  self.FONT_SIZE_BUTTON_SIMPLE_SMALL = 16
+  self.FONT_SIZE_BUTTON_VERTICAL_TAB = 28
+  self.FONT_SIZE_BUTTON_HORIZONTAL_TAB = 25
+  self.FONT_SIZE_HINT = 20
+  self.FONT_SIZE_DUEL_TITLE_SMALL = 26
+  self.FONT_SIZE_DUEL_TITLE_LARGE = 38
+  self.FONT_SIZE_FLAVOR_TEXT = 23
+  self.FONT_SIZE_OPTION_BUTTON = 26
+  self.FONT_SIZE_OPTION_BUTTON_DESCRIPTION = 22
+  self.FONT_SIZE_OPTION_BUTTON_INPUT = 22
+  self.FONT_SIZE_PLAY_BUTTON_LANDING_SCREEN = 24
+  self.FONT_SIZE_STANDING_BONUS_MESSAGE = 24
+  self.FONT_SIZE_KEYBIND_TITLE = 28
+  self.FONT_SIZE_KEYBIND_LABEL = 22
+  self.FONT_SIZE_KEYBIND_DATA = 22
+  self.FONT_SIZE_SCREEN_HEADER_LABEL = 23
+  self.FONT_SIZE_SCREEN_HEADER_DATA = 32
+  self.FONT_SIZE_POPUP_TITLE = 50
+  self.FONT_SIZE_POPUP_MESSAGE = 24
+  self.FONT_SIZE_DEATH_TITLE_PRIMARY = 70
+  self.FONT_SIZE_DEATH_TITLE_SECONDARY = 54
+  self.FONT_SIZE_DEATH_STAT_LABEL = 26
+  self.FONT_SIZE_DEATH_STAT_DATA = 42
+  self.FONT_SIZE_DEATH_STAT_DATA_ITEM = 30
+  self.FONT_SIZE_SOCIAL_MESSAGING = 26
+  self.FONT_SIZE_INVENTORY_PRIMARY_TITLE = 33
+  self.FONT_SIZE_INVENTORY_SECONDARY_TITLE = 23
+  self.FONT_SIZE_INVENTORY_WEIGHT_CURRENT = 40
+  self.FONT_SIZE_INVENTORY_WEIGHT_MAX = 28
+  self.FONT_SIZE_NOTIFICATION_MINOR_SHORT = 24
+  self.FONT_SIZE_NOTIFICATION_MINOR_LONG = 24
+  self.FONT_SIZE_NOTIFICATION_CENTER = 26
+  self.FONT_SIZE_TERRITORY_BUTTON = 28
+  self.FONT_SIZE_STRUCTURE_PROPERTIES_NAME = 24
+  self.FONT_SIZE_PERK_SELECTION_HEADER = 42
+  self.FONT_SIZE_CRAFTING_HEADER = 38
+  self.FONT_SIZE_CRAFTING_FAMILY = 22
+  self.FONT_SIZE_CRAFTROLL_ITEMNAME = 56
+  self.FONT_SIZE_CRAFTROLL_TEXT = 32
+  self.FONT_SIZE_CRAFTING_BUTTONSIMPLE = 20
+  self.FONT_SIZE_CRAFTING_BUTTONCRAFT = 42
+  self.FONT_SIZE_CRAFTING_QUANTITY = 16
+  self.FONT_SIZE_CRAFTDONE_BUTTONEXIT = 30
+  self.FONT_SIZE_CRAFTDONE_GEARSCORE = 90
+  self.FONT_SIZE_EQUIP_LOAD_TOOLTIP_BODY = 20
+  self.FONT_SIZE_EQUIP_LOAD_SPEED = 22
+  self.FONT_SIZE_EQUIP_LOAD_WEIGHT = 19
+  self.FONT_SIZE_BUILDMODE_REASON = 36
+  self.FONT_SIZE_TRADE_ENTRY_TEXT = 20
+  self.FONT_SIZE_TRADE_ENTRY_NUMBERS = 20
+  self.FONT_SIZE_TRADING_POST_SUBHEADER = 30
+  self.FONT_SIZE_TRADING_POST_TOTAL = 42
+  self.FONT_SIZE_SORT_BUTTON = 16
+  self.FONT_SIZE_WEIGHT_VALUE = 33
+  self.FONT_SIZE_WEIGHT_MAX_VALUE = 24
+  self.FONT_SIZE_WEIGHT_OVERAGE = 24
+  self.FONT_SIZE_RETICLE_AMMO = 30
+  self.FONT_SIZE_DAMAGE_NUMBER = 80
+  self.FONT_SIZE_DAMAGE_NUMBER_STATUS = 48
+  self.FONT_SIZE_OBJECTIVE_JOURNAL_OBJECTIVE = 30
+  self.FONT_SIZE_OBJECTIVE_JOURNAL_TASK = 26
+  self.FONT_SIZE_OBJECTIVE_JOURNAL_REWARD = 26
+  self.FONT_SIZE_AFFLICTION_NAME = 19
+  self.FONT_SIZE_AFFLICTION_NAME_ACTIVE = 23
+  self.FONT_SIZE_AFFLICTION_VALUE = 20
+  self.FONT_SIZE_GUILD_NAME_LARGE = 50
+  self.FONT_SIZE_TUTORIAL_TOAST_HEADER = 26
+  self.FONT_SIZE_TUTORIAL_TOAST_BODY = 24
+  self.FONT_SIZE_TUTORIAL_TOAST_KEYBIND = 26
+  self.FONT_SIZE_ARCHETYPE_HEADER = 36
+  self.FONT_SIZE_ARCHETYPE_SUBHEADER = 30
+  self.FONT_SIZE_ARCHETYPE_BODY = 22
+  self.FONT_SIZE_ARCHETYPE_SKILLS = 20
+  self.FONT_SIZE_DEATHS_DOOR_HEADER = 72
+  self.FONT_SIZE_DEATHS_DOOR_RESPAWN = 36
+  self.FONT_SIZE_DEATHS_DOOR_REVIVE = 30
+  self.FONT_SIZE_DEATHS_DOOR_DUNGEON_HEADER = 30
+  self.FONT_SIZE_DEATHS_DOOR_DUNGEON_COUNT = 72
+  self.FONT_SIZE_SKILLS_STAT_MODIFIER = 20
+  self.FONT_SIZE_PERMISSIONS_SUBHEADER = 18
+  self.FONT_SIZE_PERMISSIONS = 23
+  self.FONT_SIZE_RADIO_TAB = 22
+  self.FONT_SIZE_RADIO_TAB_PREFIX = 16
+  self.FONT_SIZE_PINNED_OBJECTIVE_TITLE = 24
+  self.FONT_SIZE_PINNED_OBJECTIVE_TASK = 20
+  self.FONT_SIZE_PINNED_OBJECTIVE_TASK_NUMBERS = 16
+  self.FONT_SIZE_TOOLTIP_HEADER = 27
+  self.FONT_SPACING_HEADER = 200
+  self.FONT_SPACING_HEADER_SMALL_CAPS = 150
+  self.FONT_SPACING_FRAME_HEADER = 150
+  self.FONT_SPACING_TITLE_GENERIC = 100
+  self.FONT_SPACING_PRIMARY_TITLE = 200
+  self.FONT_SPACING_BODY_NEW = 0
+  self.FONT_SPACING_BUTTON = 0
+  self.FONT_SPACING_BUTTON_HERO = 100
+  self.FONT_SPACING_BUTTON_PREFIX = 20
+  self.FONT_SPACING_BUTTON_TOGGLE = 10
+  self.FONT_SPACING_BUTTON_GENERIC = 80
+  self.FONT_SPACING_OPTION_BUTTON = 50
+  self.FONT_SPACING_OPTION_BUTTON_DESCRIPTION = 10
+  self.FONT_SPACING_OPTION_BUTTON_INPUT = 10
+  self.FONT_SPACING_KEYBIND_TITLE = 30
+  self.FONT_SPACING_KEYBIND_LABEL = 10
+  self.FONT_SPACING_KEYBIND_DATA = 10
+  self.FONT_SPACING_POPUP_TITLE = 125
+  self.FONT_SPACING_INVENTORY_PRIMARY_TITLE = 160
+  self.FONT_SPACING_INVENTORY_SECONDARY_TITLE = 90
+  self.FONT_SPACING_INVENTORY_WEIGHT_CURRENT = 60
+  self.FONT_SPACING_INVENTORY_WEIGHT_MAX = 60
+  self.FONT_SPACING_NOTIFICATION_MINOR_SHORT = 100
+  self.FONT_SPACING_NOTIFICATION_MINOR_LONG = 0
+  self.FONT_SPACING_CRAFTING_FAMILY = 100
+  self.FONT_SPACING_CRAFTING_HEADER = 220
+  self.FONT_SPACING_CRAFTING_CATEGORY = 190
+  self.FONT_SPACING_CRAFTROLL_HEADER = 120
+  self.FONT_SPACING_CRAFTDONE_GEARSCORETITLE = 150
+  self.FONT_SPACING_TERRITORY_BUTTON = 65
+  self.FONT_SPACING_TERRITORY_UPGRADE_BUTTON = 40
+  self.FONT_SPACING_DEATH_STAT_LABEL = 200
+  self.FONT_SPACING_SORT_BUTTON = 90
+  self.FONT_SPACING_TRADING_POST_SUBHEADER = 90
+  self.FONT_SPACING_TRADING_POST_TOTAL = 15
+  self.FONT_SPACING_WEIGHT = 0
+  self.FONT_SPACING_WEIGHT_OVERAGE = 65
+  self.FONT_SPACING_RETICLE_AMMO = 15
+  self.FONT_SPACING_AFFLICTION_RESISTANCE = 30
+  self.FONT_SPACING_AFFLICTION_VALUE = 30
+  self.FONT_SPACING_AFFLICTION_ACTIVE = 180
+  self.FONT_SPACING_LARGE_TAB_PRIMARY = 75
+  self.FONT_SPACING_LARGE_TAB_SECONDARY = 0
+  self.FONT_SPACING_GUILD_NAME_LARGE = 130
+  self.FONT_SPACING_TUTORIAL_TOAST_HEADER = 200
+  self.FONT_SPACING_ARCHETYPE_HEADER = 200
+  self.FONT_SPACING_ARCHETYPE_SUBHEADER = 200
+  self.FONT_EFFECT_NONE = "default"
+  self.FONT_EFFECT_DROPSHADOW = "drop_shadow"
+  self.FONT_EFFECT_OUTLINE = "outline"
+  self.FONT_EFFECT_OUTLINE_FAINT = "outlineFaint"
+  self.FONT_STYLE_HEADER = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_HEADER,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = self.FONT_SPACING_HEADER,
+    textCasing = self.TEXT_CASING_UPPER,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_HEADER_TAN = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_HEADER,
+    fontColor = self.COLOR_TAN_LIGHT,
+    characterSpacing = self.FONT_SPACING_HEADER,
+    textCasing = self.TEXT_CASING_UPPER,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_HEADER_SECONDARY = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_HEADER_SECONDARY,
+    fontColor = self.COLOR_TAN_HEADER_SECONDARY,
+    characterSpacing = 200,
+    textCasing = self.TEXT_CASING_UPPER,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_HEADER_SMALL_CAPS = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_TITLE,
+    fontColor = self.COLOR_TAN,
+    characterSpacing = self.FONT_SPACING_HEADER_SMALL_CAPS,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_HEADER_SMALL_CAPS_BIG = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_HEADER_SMALL_CAPS,
+    fontColor = self.COLOR_TAN,
+    characterSpacing = self.FONT_SPACING_HEADER_SMALL_CAPS,
+    textCasing = self.TEXT_CASING_UPPER,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_SUBHEADER = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_BOLD,
+    fontSize = self.FONT_SIZE_SUBHEADER,
+    fontColor = self.COLOR_FLAVOR_TEXT
+  }
+  self.FONT_STYLE_SUBHEADER_WHITE = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_BOLD,
+    fontSize = self.FONT_SIZE_SUBHEADER,
+    fontColor = self.COLOR_WHITE
+  }
+  self.FONT_STYLE_MINOR_HEADER = {
+    fontFamily = self.FONT_FAMILY_NIMBUS,
+    fontSize = self.FONT_SIZE_SUBHEADER,
+    fontColor = self.COLOR_FLAVOR_TEXT
+  }
+  self.FONT_STYLE_NAME = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_NAME,
+    fontColor = self.COLOR_TAN
+  }
+  self.FONT_STYLE_FRAME_HEADER = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_FRAME_HEADER,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = self.FONT_SPACING_FRAME_HEADER,
+    textCasing = self.TEXT_CASING_UPPER,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_FRAME_HEADER_LARGE = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_FRAME_HEADER_LARGE,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = self.FONT_SPACING_FRAME_HEADER,
+    textCasing = self.TEXT_CASING_UPPER,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_FRAME_SUBHEADER = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = self.FONT_SIZE_FRAME_SUBHEADER,
+    fontColor = self.COLOR_GRAY_80,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_TITLE = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_TITLE,
+    fontColor = self.COLOR_WHITE
+  }
+  self.FONT_STYLE_PRIMARY_TITLE = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_PRIMARY_TITLE,
+    fontColor = self.COLOR_GRAY_80,
+    characterSpacing = self.FONT_SPACING_PRIMARY_TITLE,
+    textCasing = self.TEXT_CASING_UPPER,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_TITLE_GENERIC = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_TITLE_GENERIC,
+    fontColor = self.COLOR_GRAY_70,
+    characterSpacing = self.FONT_SPACING_TITLE_GENERIC
+  }
+  self.FONT_STYLE_TITLE_GENERIC_BLACK = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_TITLE_GENERIC,
+    fontColor = self.COLOR_BLACK,
+    characterSpacing = self.FONT_SPACING_TITLE_GENERIC
+  }
+  self.FONT_STYLE_TITLE_GENERIC_GRAY_90 = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_TITLE_GENERIC,
+    fontColor = self.COLOR_GRAY_90,
+    characterSpacing = self.FONT_SPACING_TITLE_GENERIC
+  }
+  self.FONT_STYLE_TITLE_GENERIC_SMALL = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_TITLE_GENERIC_SMALL,
+    fontColor = self.COLOR_TAN_MEDIUM_LIGHTER,
+    characterSpacing = self.FONT_SPACING_TITLE_GENERIC,
+    textCasing = self.TEXT_CASING_UPPER,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_BODY = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = self.FONT_SIZE_BODY,
+    fontColor = self.COLOR_GRAY_80
+  }
+  self.FONT_STYLE_BODY_NEW = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = self.FONT_SIZE_BODY_NEW,
+    fontColor = self.COLOR_GRAY_80,
+    characterSpacing = self.FONT_SPACING_BODY_NEW,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_BODY_NEW_WHITE = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = self.FONT_SIZE_BODY_NEW,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = self.FONT_SPACING_BODY_NEW,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_BODY_NEW_REGULAR = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = self.FONT_SIZE_BODY_NEW,
+    fontColor = self.COLOR_GRAY_80,
+    characterSpacing = self.FONT_SPACING_BODY_NEW,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_BUTTON = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = self.FONT_SIZE_BUTTON,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = self.FONT_SPACING_BUTTON,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_BUTTON_DIALOGUE = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_BOLD,
+    fontSize = self.FONT_SIZE_BUTTON,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = self.FONT_SPACING_BUTTON,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_BUTTON_DIALOGUE_PREFIX = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_BOLD,
+    fontSize = self.FONT_SIZE_BODY_NEW,
+    fontColor = self.COLOR_TAN,
+    characterSpacing = self.FONT_SPACING_BUTTON,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_DROPDOWN = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = self.FONT_SIZE_BUTTON,
+    fontColor = self.COLOR_GRAY_50,
+    characterSpacing = self.FONT_SPACING_BUTTON,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_DROPDOWN_SELECTED = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = self.FONT_SIZE_BUTTON,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = self.FONT_SPACING_BUTTON,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_BUTTON_BLOCKED = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = self.FONT_SIZE_BUTTON,
+    fontColor = self.COLOR_RED_MEDIUM,
+    characterSpacing = self.FONT_SPACING_BUTTON,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_BUTTON_HERO = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_BUTTON_HERO,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = self.FONT_SPACING_BUTTON_HERO,
+    textCasing = self.TEXT_CASING_UPPER,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_BUTTON_PREFIX = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_BUTTON_PREFIX,
+    fontColor = self.COLOR_TAN_DARK,
+    characterSpacing = self.FONT_SPACING_BUTTON_PREFIX
+  }
+  self.FONT_STYLE_BUTTON_TOGGLE = {
+    fontFamily = self.FONT_FAMILY_PICA_ITALIC,
+    fontSize = self.FONT_SIZE_BUTTON_TOGGLE,
+    fontColor = self.COLOR_TAN,
+    characterSpacing = self.FONT_SPACING_BUTTON_TOGGLE
+  }
+  self.FONT_STYLE_BUTTON_SIMPLE = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_SEMIBOLD,
+    fontSize = self.FONT_SIZE_BUTTON_SIMPLE,
+    fontColor = self.COLOR_WHITE
+  }
+  self.FONT_STYLE_BUTTON_SIMPLE_SMALL = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_SEMIBOLD,
+    fontSize = self.FONT_SIZE_BUTTON_SIMPLE_SMALL,
+    fontColor = self.COLOR_WHITE
+  }
+  self.FONT_STYLE_NUMBER_SMALL = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_BOLD,
+    fontSize = self.FONT_SIZE_BODY,
+    fontColor = self.COLOR_WHITE,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_NUMBER_LARGE = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontSize = 55,
+    fontColor = self.COLOR_WHITE,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_TOOLTIP_HEADER = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 27,
+    fontColor = self.COLOR_TOOLTIP_GRAY,
+    characterSpacing = 80,
+    textCasing = self.TEXT_CASING_UPPER,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_TOOLTIP_HEADER_NIMBUS = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_BOLD,
+    fontSize = 27,
+    fontColor = self.COLOR_TOOLTIP_GRAY,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_TOOLTIP_TIER = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 23,
+    fontColor = self.COLOR_TOOLTIP_GRAY,
+    characterSpacing = 100,
+    textCasing = self.TEXT_CASING_UPPER,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_TOOLTIP_TIER_NIMBUS = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = 23,
+    fontColor = self.COLOR_TOOLTIP_GRAY,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_TOOLTIP_TIER_ITALIC = {
+    fontFamily = self.FONT_FAMILY_PICA_ITALIC,
+    fontSize = 23,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_UPPER,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_TOOLTIP_RARITY = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = 25,
+    fontColor = self.COLOR_TOOLTIP_GRAY,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_GEAR_SCORE = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontSize = 62,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_GEAR_SCORE_SMALL = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontSize = 27,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_TOOLTIP_STAT_LABEL = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = 23,
+    fontColor = self.COLOR_TOOLTIP_GRAY_STATS,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_TOOLTIP_STAT_LABEL_BLUE = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = 23,
+    fontColor = self.COLOR_TOOLTIP_BLUE,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_TOOLTIP_STAT_LABEL_BLUE_DESCRIPTION = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = 23,
+    fontColor = self.COLOR_TOOLTIP_BLUE_DESCRIPTION,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_TOOLTIP_STAT_NUMBER = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_BOLD,
+    fontSize = 23,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_TOOLTIP_EQUIPPED = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = 23,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_TOOLTIP_ACTIONS_HEADER = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 20,
+    fontColor = self.COLOR_TAN_HEADER_SECONDARY,
+    characterSpacing = 100,
+    textCasing = self.TEXT_CASING_UPPER,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_TOOLTIP_ACTIONS_BUTTON = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = 27,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_TOOLTIP_ACTIONS_TERTIARY = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = 23,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_TOOLTIP_STATS_HEADER = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 20,
+    fontColor = self.COLOR_TOOLTIP_GRAY_DARK,
+    characterSpacing = 100,
+    textCasing = self.TEXT_CASING_UPPER,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_TOOLTIP_SIMPLE = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = 23,
+    fontColor = self.COLOR_TAN,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_TOOLTIP_BUTTON_COMMAND_SECONDARY_TEXT = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_BOLD,
+    fontSize = 17,
+    fontColor = self.COLOR_TAN,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_TOOLTIP_BUTTON_COMMAND_TERTIARY_TEXT = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = 21,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_INVENTORY_SECTION_WEIGHT = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontSize = 23,
+    fontColor = self.COLOR_GRAY_80,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_GENERATOR_INFO = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = 24,
+    fontColor = self.COLOR_GRAY_80,
+    characterSpacing = self.FONT_SPACING_BODY_NEW,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_ATTRIBUTES_STAT_LABEL = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_HEADER_SECONDARY,
+    fontColor = self.COLOR_TAN_HEADER_SECONDARY,
+    characterSpacing = 100,
+    textCasing = self.TEXT_CASING_UPPER,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_ATTRIBUTES_STAT_VITALS = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = self.FONT_SIZE_BODY_NEW,
+    fontColor = self.COLOR_GRAY_80,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_ATTRIBUTES_STAT = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontSize = 33,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_ATTRIBUTES_HEADER = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 31,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 150,
+    textCasing = self.TEXT_CASING_UPPER,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_ATTRIBUTES_DESCRIPTION = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR_ITALIC,
+    fontSize = 23,
+    fontColor = self.COLOR_GRAY_50,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_ATTRIBUTES_VALUE = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontSize = 78,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_ATTRIBUTES_TOOLTIP_DESC = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = 23,
+    fontColor = self.COLOR_GRAY_80,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_ATTRIBUTES_TOOLTIP_POINTS = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_BOLD,
+    fontSize = 23,
+    fontColor = self.COLOR_GRAY_80,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_OBJECTIVE_HEADER = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 24,
+    fontColor = self.COLOR_TAN_HEADER_SECONDARY,
+    characterSpacing = self.FONT_SPACING_HEADER_SMALL_CAPS,
+    textCasing = self.TEXT_CASING_UPPER,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_QUEUE_POPUP_HEADER = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_HEADER_SECONDARY,
+    fontColor = self.COLOR_TAN_HEADER_SECONDARY,
+    characterSpacing = 80,
+    textCasing = self.TEXT_CASING_UPPER,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_QUEUE_POPUP_STATUS = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = 23,
+    fontColor = self.COLOR_TAN_HEADER_SECONDARY,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_BUTTON_COMMAND = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_SEMIBOLD,
+    fontSize = 19,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_BUTTON_COMMAND_FLYOUT = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = 21,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_PLAYER_NAME = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = 26,
+    fontColor = self.COLOR_GRAY_80,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_P2P_ITEM_COUNT = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = self.FONT_SIZE_BODY_NEW,
+    fontColor = self.COLOR_GRAY_80,
+    characterSpacing = self.FONT_SPACING_BODY_NEW,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_P2P_ITEM_STATUS = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = self.FONT_SIZE_BODY_NEW,
+    fontColor = self.COLOR_GRAY_50,
+    characterSpacing = self.FONT_SPACING_BODY_NEW,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_CONTAINER_HEADER = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_PRIMARY_TITLE,
+    fontColor = self.COLOR_GRAY_80,
+    characterSpacing = 150,
+    textCasing = self.TEXT_CASING_UPPER,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_EMPTY_CONTAINER_TEXT = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 23,
+    fontColor = self.COLOR_TAN_LIGHT,
+    characterSpacing = 130,
+    textCasing = self.TEXT_CASING_UPPER,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_EQUIPMENT_STAT_HEADER = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 26,
+    fontColor = self.COLOR_GRAY_80,
+    characterSpacing = 100,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_EQUIPMENT_STAT_DESCRIPTION = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR_ITALIC,
+    fontSize = self.FONT_SIZE_FLAVOR_TEXT,
+    fontColor = self.COLOR_FLAVOR_TEXT,
+    characterSpacing = 0
+  }
+  self.FONT_STYLE_CRAFTING_FILTER_ACCEPT = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = self.FONT_SIZE_BODY_NEW,
+    fontColor = self.COLOR_BLACK,
+    characterSpacing = self.FONT_SPACING_BODY_NEW,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_PERK_SELECTION_HEADER = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_BOLD,
+    fontSize = self.FONT_SIZE_PERK_SELECTION_HEADER,
+    fontColor = self.COLOR_PERK_SELECTION_HEADER_TAN,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_HEALING_TARGET_LABEL = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = self.FONT_SIZE_BODY_NEW,
+    fontColor = self.COLOR_GRAY_50,
+    characterSpacing = self.FONT_SPACING_BODY_NEW,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_NEW_PURCHASE_INDICATOR = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_SEMIBOLD,
+    fontSize = 18,
+    fontColor = self.COLOR_YELLOW,
+    characterSpacing = 80,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_FLAVOR_TEXT = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR_ITALIC,
+    fontSize = self.FONT_SIZE_FLAVOR_TEXT,
+    fontColor = self.COLOR_FLAVOR_TEXT,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_DISCLAIMER_TEXT = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = self.FONT_SIZE_FLAVOR_TEXT,
+    fontColor = self.COLOR_YELLOW,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_LIST_ITEM = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = self.FONT_SIZE_BODY_NEW,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = self.FONT_SPACING_BODY_NEW,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_BUTTON_VERTICAL_TAB = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = self.FONT_SIZE_BUTTON_VERTICAL_TAB,
+    fontColor = self.COLOR_WHITE,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_BUTTON_VERTICAL_TAB_VALUE = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontSize = 30,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0
+  }
+  self.FONT_STYLE_BUTTON_VERTICAL_TAB_VALUE_LARGE = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontSize = 36,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0
+  }
+  self.FONT_STYLE_BUTTON_VERTICAL_TAB_LARGE = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = self.FONT_SIZE_BUTTON_VERTICAL_TAB,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_BUTTON_VERTICAL_TAB_SECONDARY = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = self.FONT_SIZE_BODY_NEW,
+    fontColor = self.COLOR_TAN_LIGHT,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_BUTTON_HORIZONTAL_TAB = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_BUTTON_HORIZONTAL_TAB,
+    fontColor = self.COLOR_TAN_LIGHT,
+    characterSpacing = self.FONT_SPACING_BUTTON_GENERIC,
+    textCasing = self.TEXT_CASING_UPPER,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_BUTTON_VERTICAL_TAB_NEW_TEXT = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = 23,
+    fontColor = self.COLOR_GREEN,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_BUTTON_VERTICAL_TAB_JOURNAL = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = 24,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_DROPDOWN_REGIONS = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_SEMIBOLD,
+    fontSize = 22,
+    fontColor = self.COLOR_TAN,
+    characterSpacing = 0
+  }
+  self.FONT_STYLE_HINT = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = self.FONT_SIZE_HINT,
+    fontColor = self.COLOR_TAN_LIGHT
+  }
+  self.FONT_STYLE_HINT_HUD_SMALL = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = 28,
+    fontColor = self.COLOR_TAN_LIGHT
+  }
+  self.FONT_STYLE_HINT_HUD = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = 22,
+    fontColor = self.COLOR_TAN_LIGHT
+  }
+  self.FONT_STYLE_HINT_BIG = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_SEMIBOLD,
+    fontSize = 22,
+    fontColor = self.COLOR_WHITE
+  }
+  self.FONT_STYLE_HINT_LABEL = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = self.FONT_SIZE_BODY_NEW,
+    fontColor = self.COLOR_GRAY_90
+  }
+  self.FONT_STYLE_OPTION_BUTTON = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = self.FONT_SIZE_OPTION_BUTTON,
+    fontColor = self.COLOR_WHITE
+  }
+  self.FONT_STYLE_OPTION_BUTTON_DESCRIPTION = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = self.FONT_SIZE_OPTION_BUTTON_DESCRIPTION,
+    fontColor = self.COLOR_GRAY_70
+  }
+  self.FONT_STYLE_OPTION_BUTTON_INPUT = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = self.FONT_SIZE_OPTION_BUTTON_INPUT,
+    fontColor = self.COLOR_GRAY_70
+  }
+  self.FONT_STYLE_KEYBIND_TITLE = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_KEYBIND_TITLE,
+    fontColor = self.COLOR_TAN,
+    characterSpacing = self.FONT_SPACING_KEYBIND_TITLE
+  }
+  self.FONT_STYLE_KEYBIND_LABEL = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = self.FONT_SIZE_KEYBIND_LABEL,
+    fontColor = self.COLOR_GRAY_50,
+    characterSpacing = self.FONT_SPACING_KEYBIND_LABEL
+  }
+  self.FONT_STYLE_KEYBIND_DATA = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = self.FONT_SIZE_KEYBIND_DATA,
+    fontColor = self.COLOR_GRAY_90,
+    characterSpacing = self.FONT_SPACING_KEYBIND_DATA
+  }
+  self.FONT_STYLE_POPUP_TITLE = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_POPUP_TITLE,
+    fontColor = self.COLOR_TAN_MEDIUM_LIGHT,
+    characterSpacing = self.FONT_SPACING_POPUP_TITLE
+  }
+  self.FONT_STYLE_POPUP_MESSAGE_TITLE = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_BOLD,
+    fontSize = 25,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_UPPER,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_POPUP_MESSAGE = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = self.FONT_SIZE_BODY_NEW,
+    fontColor = self.COLOR_TAN_HEADER_SECONDARY,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_LOOT_BAG_ITEMS = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = self.FONT_SIZE_BODY_NEW,
+    fontColor = self.COLOR_GRAY_80,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_LOOT_BAG_WEIGHT = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontSize = 25,
+    fontColor = self.COLOR_GRAY_80,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_DEATH_TITLE_PRIMARY = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_DEATH_TITLE_PRIMARY,
+    fontColor = self.COLOR_RED
+  }
+  self.FONT_STYLE_DEATH_TITLE_SECONDARY = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_DEATH_TITLE_SECONDARY,
+    fontColor = self.COLOR_WHITE
+  }
+  self.FONT_STYLE_DEATH_STAT_LABEL = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_DEATH_STAT_LABEL,
+    fontColor = self.COLOR_GRAY_50,
+    characterSpacing = self.FONT_SPACING_DEATH_STAT_LABEL
+  }
+  self.FONT_STYLE_DEATH_STAT_LABEL_WHITE = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_DEATH_STAT_LABEL,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = self.FONT_SPACING_DEATH_STAT_LABEL
+  }
+  self.FONT_STYLE_DEATH_STAT_LABEL_TAN = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_DEATH_STAT_LABEL,
+    fontColor = self.COLOR_TAN,
+    characterSpacing = self.FONT_SPACING_DEATH_STAT_LABEL
+  }
+  self.FONT_STYLE_DEATH_STAT_LABEL_GRAY = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_DEATH_STAT_LABEL,
+    fontColor = self.COLOR_GRAY_80,
+    characterSpacing = self.FONT_SPACING_DEATH_STAT_LABEL
+  }
+  self.FONT_STYLE_DEATH_STAT_DATA = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontSize = self.FONT_SIZE_DEATH_STAT_DATA,
+    fontColor = self.COLOR_WHITE
+  }
+  self.FONT_STYLE_DEATH_STAT_DATA_ITEM = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_DEATH_STAT_DATA_ITEM,
+    fontColor = self.COLOR_WHITE
+  }
+  self.FONT_STYLE_SOCIAL_MESSAGING = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = self.FONT_SIZE_SOCIAL_MESSAGING,
+    fontColor = self.COLOR_GRAY_70
+  }
+  self.FONT_STYLE_SOCIAL_ERROR_MESSAGING = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = self.FONT_SIZE_SOCIAL_MESSAGING,
+    fontColor = self.COLOR_RED
+  }
+  self.FONT_STYLE_SET_MODIFIER = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_BOLD,
+    fontSize = 52,
+    fontColor = self.COLOR_WHITE
+  }
+  self.FONT_STYLE_PENDING_MODIFIER = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_BOLD,
+    fontSize = 52,
+    fontColor = self.COLOR_GREEN
+  }
+  self.FONT_STYLE_SET_STAT_MODIFIER = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = 16,
+    fontColor = self.COLOR_WHITE
+  }
+  self.FONT_STYLE_PENDING_STAT_MODIFIER = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = 16,
+    fontColor = self.COLOR_GREEN
+  }
+  self.FONT_STYLE_COMING_SOON_STAT_MODIFIER = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = 16,
+    fontColor = self.COLOR_RED
+  }
+  self.FONT_STYLE_MAP_FILTERITEM = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_SEMIBOLD,
+    fontSize = 18,
+    fontColor = self.COLOR_TAN
+  }
+  self.FONT_STYLE_MAP_FILTERBUTTON = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_BUTTON,
+    fontColor = self.COLOR_TAN,
+    characterSpacing = 30
+  }
+  self.FONT_STYLE_MAP_PROTECTION_TIMER = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontSize = self.FONT_SIZE_KEYBIND_TITLE,
+    characterSpacing = 30
+  }
+  self.FONT_STYLE_MAP_GUILDNAME = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_KEYBIND_TITLE,
+    fontColor = self.COLOR_TAN_LIGHT
+  }
+  self.FONT_STYLE_MAP_STORAGEBUTTON = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 22,
+    textCasing = self.TEXT_CASING_UPPER,
+    characterSpacing = 100
+  }
+  self.FONT_STYLE_MAP_MENUBUTTON = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 17,
+    textCasing = self.TEXT_CASING_UPPER,
+    characterSpacing = 100
+  }
+  self.FONT_STYLE_MAP_MENUBUTTON_small = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 13,
+    textCasing = self.TEXT_CASING_UPPER,
+    characterSpacing = 100
+  }
+  self.FONT_STYLE_SCREEN_HEADER_LABEL = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = self.FONT_SIZE_SCREEN_HEADER_LABEL,
+    fontColor = self.COLOR_GRAY_80,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_SCREEN_HEADER_DATA = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontSize = self.FONT_SIZE_SCREEN_HEADER_DATA,
+    fontColor = self.COLOR_WHITE,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_SKILLS_NAV_PREFIX = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontSize = self.FONT_SIZE_SUBHEADER,
+    fontColor = self.COLOR_TAN_LIGHT
+  }
+  self.FONT_STYLE_INVENTORY_PRIMARY_TITLE = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_INVENTORY_PRIMARY_TITLE,
+    fontColor = self.COLOR_TAN_INVENTORY_TITLE,
+    characterSpacing = self.FONT_SPACING_INVENTORY_PRIMARY_TITLE,
+    textCasing = self.TEXT_CASING_UPPER,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_INVENTORY_SECONDARY_TITLE = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_INVENTORY_SECONDARY_TITLE,
+    fontColor = self.COLOR_TAN_HEADER_SECONDARY,
+    characterSpacing = self.FONT_SPACING_INVENTORY_SECONDARY_TITLE,
+    textCasing = self.TEXT_CASING_UPPER,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_INVENTORY_WEIGHT_CURRENT = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontSize = self.FONT_SIZE_INVENTORY_WEIGHT_CURRENT,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = self.FONT_SPACING_INVENTORY_WEIGHT_CURRENT
+  }
+  self.FONT_STYLE_INVENTORY_WEIGHT_MAX = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontSize = self.FONT_SIZE_INVENTORY_WEIGHT_MAX,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = self.FONT_SPACING_INVENTORY_WEIGHT_MAX
+  }
+  self.FONT_STYLE_EQUIP_LOAD_SPEED = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_EQUIP_LOAD_SPEED
+  }
+  self.FONT_STYLE_EQUIP_LOAD_WEIGHT_VALUE = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontSize = self.FONT_SIZE_EQUIP_LOAD_WEIGHT
+  }
+  self.FONT_STYLE_EQUIP_LOAD_WEIGHT_MAX = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontSize = self.FONT_SIZE_EQUIP_LOAD_WEIGHT
+  }
+  self.FONT_STYLE_EQUIP_LOAD_TOOLTIP = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = self.FONT_SIZE_EQUIP_LOAD_TOOLTIP_BODY,
+    fontColor = self.COLOR_GRAY_90
+  }
+  self.FONT_STYLE_EQUIP_LOAD_TOOLTIP_TITLE = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_TITLE,
+    fontColor = self.COLOR_TAN
+  }
+  self.FONT_STYLE_EQUIP_LOAD_TOOLTIP_SUBTITLE = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_SUBHEADER,
+    fontColor = self.COLOR_TAN
+  }
+  self.FONT_STYLE_NOTIFICATION_MINOR_SHORT = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_NOTIFICATION_MINOR_SHORT,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = self.FONT_SPACING_NOTIFICATION_MINOR_SHORT,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_NOTIFICATION_MINOR_LONG = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_SEMIBOLD,
+    fontSize = self.FONT_SIZE_NOTIFICATION_MINOR_LONG,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = self.FONT_SPACING_NOTIFICATION_MINOR_LONG,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_NOTIFICATION_SUBTITLE = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_SEMIBOLD,
+    fontSize = self.FONT_SIZE_NOTIFICATION_MINOR_LONG,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = self.FONT_SPACING_NOTIFICATION_MINOR_LONG,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_NOTIFICATION_BUTTON = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_SEMIBOLD,
+    fontSize = 22,
+    textCasing = self.TEXT_CASING_NORMAL,
+    characterSpacing = 0
+  }
+  self.FONT_STYLE_NOTIFICATION_BODY = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = self.FONT_SIZE_BODY_NEW,
+    fontColor = self.COLOR_TAN_MEDIUM_LIGHTER,
+    characterSpacing = self.FONT_SPACING_BODY_NEW,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_NOTIFICATION_TITLE = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_NOTIFICATION_CENTER,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 200,
+    textCasing = self.TEXT_CASING_UPPER,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_NOTIFICATION_CENTER_TITLE = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_NOTIFICATION_CENTER,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 200,
+    textCasing = self.TEXT_CASING_UPPER,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_DUEL_TITLE = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 25,
+    fontColor = self.COLOR_YELLOW,
+    characterSpacing = 80,
+    textCasing = self.TEXT_CASING_UPPER,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_DUEL_TITLE_SMALL = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 24,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 200,
+    textCasing = self.TEXT_CASING_UPPER,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_DUEL_TITLE_MEDIUM = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 33,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 150,
+    textCasing = self.TEXT_CASING_UPPER,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_DUEL_TITLE_LARGE = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 42,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 150,
+    textCasing = self.TEXT_CASING_UPPER,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_DUEL_COUNTDOWN = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontSize = 75,
+    fontColor = self.COLOR_WHITE,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_DUEL_RESULT = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = 26,
+    fontColor = self.COLOR_WHITE,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_DIALOGUE = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 30,
+    fontColor = self.COLOR_TAN_LIGHT,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW,
+    lineSpacing = 1
+  }
+  self.FONT_STYLE_TERRITORY_BUTTON = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 28,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_TERRITORY_UPGRADE_BUTTON = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_TERRITORY_BUTTON,
+    fontColor = self.COLOR_TAN,
+    characterSpacing = self.FONT_SPACING_TERRITORY_UPGRADE_BUTTON,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_CRAFTING_FILTER_ENTRY = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = self.FONT_SIZE_BODY_NEW,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = self.FONT_SPACING_BODY_NEW,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_CRAFTING_FILTER_HEADER = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_SEMIBOLD,
+    fontSize = self.FONT_SIZE_BODY_NEW,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = self.FONT_SPACING_BODY_NEW,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_CRAFTING_NO_PERKS = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = self.FONT_SIZE_BODY_NEW,
+    fontColor = self.COLOR_GRAY_60,
+    characterSpacing = self.FONT_SPACING_BODY_NEW,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_CRAFTING_SUMMARY_AMOUNT = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontSize = 42,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 40,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_CRAFTING_SUMMARY_HEADER = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 36,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = self.FONT_SPACING_HEADER,
+    textCasing = self.TEXT_CASING_UPPER,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_CRAFTING_SUMMARY_ITEM = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = 28,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_CRAFTING_SUMMARY_ITEM_GS = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontSize = 40,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_CRAFTING_ATTRIBUTE = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_BOLD,
+    fontSize = 28,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_CRAFTING_ATTRIBUTE_LABEL = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = 28,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_CRAFTING_FAMILY = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_CRAFTING_FAMILY,
+    fontColor = self.COLOR_TAN,
+    characterSpacing = self.FONT_SPACING_CRAFTING_FAMILY
+  }
+  self.FONT_STYLE_CRAFTING_HEADER = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_CRAFTING_HEADER,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = self.FONT_SPACING_CRAFTING_HEADER,
+    textCasing = self.TEXT_CASING_UPPER,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_CRAFTING_CATEGORY = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_TITLE,
+    fontColor = self.COLOR_TAN_MEDIUM,
+    characterSpacing = self.FONT_SPACING_CRAFTING_CATEGORY
+  }
+  self.FONT_STYLE_CRAFTING_TOOLTIP_NAME = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_TITLE,
+    fontColor = self.COLOR_TAN,
+    characterSpacing = self.FONT_SPACING_CRAFTING_FAMILY
+  }
+  self.FONT_STYLE_CRAFTING_TOOLTIP_DESCRIPTION = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = self.FONT_SIZE_TITLE,
+    fontColor = self.COLOR_WHITE
+  }
+  self.FONT_STYLE_CRAFTING_BUTTONSIMPLE = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_CRAFTING_BUTTONSIMPLE,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = self.FONT_SPACING_CRAFTING_FAMILY
+  }
+  self.FONT_STYLE_CRAFTING_BUTTONCRAFT = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 36,
+    characterSpacing = 100,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_CRAFTING_QUANTITY = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = self.FONT_SIZE_CRAFTING_QUANTITY
+  }
+  self.FONT_STYLE_CRAFTING_PIN_RECIPE = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 20,
+    textCasing = self.TEXT_CASING_UPPER,
+    characterSpacing = 100
+  }
+  self.FONT_STYLE_CRAFTING_INGREDIENT_AMOUNT = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontSize = 24,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 100,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_CRAFTROLL_HEADER = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_TITLE,
+    fontColor = self.COLOR_GRAY_50,
+    characterSpacing = self.FONT_SPACING_CRAFTROLL_HEADER
+  }
+  self.FONT_STYLE_CRAFTROLL_ITEMNAME = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 34,
+    characterSpacing = 100
+  }
+  self.FONT_STYLE_CRAFTROLL_ITEMNAME_BIG = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 40,
+    characterSpacing = 100
+  }
+  self.FONT_STYLE_CRAFTROLL_LABEL = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = self.FONT_SIZE_BUTTON,
+    fontColor = self.COLOR_GRAY_70,
+    characterSpacing = self.FONT_SPACING_CRAFTROLL_HEADER
+  }
+  self.FONT_STYLE_CRAFTROLL_TEXT = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_CRAFTROLL_TEXT,
+    characterSpacing = self.FONT_SPACING_CRAFTROLL_HEADER
+  }
+  self.FONT_STYLE_CRAFTDONE_HEADER = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_TITLE,
+    fontColor = self.COLOR_GRAY_50,
+    characterSpacing = self.FONT_SPACING_CRAFTROLL_HEADER
+  }
+  self.FONT_STYLE_CRAFTDONE_ITEMNAME = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 32,
+    fontColor = self.COLOR_TAN,
+    characterSpacing = 100
+  }
+  self.FONT_STYLE_CRAFTDONE_GEARSCORETITLE = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_CRAFTROLL_TEXT,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = self.FONT_SPACING_CRAFTDONE_GEARSCORETITLE
+  }
+  self.FONT_STYLE_CRAFTDONE_GEARSCORE = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontSize = self.FONT_SIZE_CRAFTDONE_GEARSCORE,
+    fontColor = self.COLOR_TAN
+  }
+  self.FONT_STYLE_CRAFTDONE_BUTTONEXIT = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_CRAFTDONE_BUTTONEXIT,
+    characterSpacing = self.FONT_SPACING_CRAFTING_FAMILY,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_STRUCTURE_PROPERTIES_NAME = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_STRUCTURE_PROPERTIES_NAME,
+    fontColor = self.COLOR_TAN,
+    characterSpacing = self.FONT_SPACING_CRAFTING_FAMILY
+  }
+  self.FONT_STYLE_STRUCTURE_PROPERTIES_SKILL = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = 24,
+    fontColor = self.COLOR_TAN_DARK
+  }
+  self.FONT_STYLE_STRUCTURE_PROPERTIES_DROPDOWN = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = self.FONT_SIZE_HINT,
+    fontColor = self.COLOR_TAN
+  }
+  self.FONT_STYLE_LEGEND_EXIT = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 24,
+    fontColor = self.COLOR_GRAY_50
+  }
+  self.FONT_STYLE_TRADE_ENTRY_TEXT = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = self.FONT_SIZE_TRADE_ENTRY_TEXT,
+    fontColor = self.COLOR_TAN,
+    textCasing = self.TEXT_CASING_NORMAL,
+    lineSpacing = self.FONT_SIZE_TRADE_ENTRY_TEXT * self.FONT_SIZE_TRADE_ENTRY_TEXT
+  }
+  self.FONT_STYLE_TRADE_ENTRY_NUMBERS = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontSize = self.FONT_SIZE_TRADE_ENTRY_NUMBERS,
+    fontColor = self.COLOR_TAN
+  }
+  self.FONT_STYLE_TRADING_POST_HEADER = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_CRAFTING_HEADER,
+    fontColor = self.COLOR_TAN,
+    characterSpacing = self.FONT_SPACING_CRAFTING_HEADER
+  }
+  self.FONT_STYLE_TRADING_POST_SUBHEADER = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_TRADING_POST_SUBHEADER,
+    fontColor = self.COLOR_TAN,
+    characterSpacing = self.FONT_SPACING_TRADING_POST_SUBHEADER,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_TRADING_POST_TOTAL = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontSize = self.FONT_SIZE_TRADING_POST_TOTAL,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = self.FONT_SPACING_TRADING_POST_TOTAL
+  }
+  self.FONT_STYLE_SORT_BUTTON_UPPER = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_SORT_BUTTON,
+    fontColor = self.COLOR_SORT_BUTTON_UNSELECTED,
+    characterSpacing = self.FONT_SPACING_SORT_BUTTON,
+    hAlignment = self.TEXT_HALIGN_LEFT,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_SORT_BUTTON_NORMAL = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = 18,
+    fontColor = self.COLOR_SORT_BUTTON_UNSELECTED,
+    characterSpacing = 0,
+    hAlignment = self.TEXT_HALIGN_LEFT,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_WEIGHT_VALUE = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontSize = self.FONT_SIZE_WEIGHT_VALUE,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = self.FONT_SPACING_WEIGHT,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_WEIGHT_MAX_VALUE = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontSize = self.FONT_SIZE_WEIGHT_MAX_VALUE,
+    fontColor = self.COLOR_GRAY_80,
+    characterSpacing = self.FONT_SPACING_WEIGHT,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_WEIGHT_OVERAGE = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_WEIGHT_OVERAGE,
+    fontColor = self.COLOR_RED,
+    characterSpacing = self.FONT_SPACING_WEIGHT_OVERAGE,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_RETICLE_AMMO = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = self.FONT_SIZE_RETICLE_AMMO,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = self.FONT_SPACING_RETICLE_AMMO,
+    fontEffect = self.FONT_EFFECT_OUTLINE_FAINT
+  }
+  self.FONT_STYLE_DAMAGE_NUMBER = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontSize = self.FONT_SIZE_DAMAGE_NUMBER
+  }
+  self.FONT_STYLE_DAMAGE_NUMBER_STATUS = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_SEMIBOLD,
+    fontSize = self.FONT_SIZE_DAMAGE_NUMBER_STATUS
+  }
+  self.FONT_STYLE_AFFLICTION_RESISTANCE = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_AFFLICTION_NAME,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = self.FONT_SPACING_AFFLICTION_RESISTANCE,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_AFFLICTION_ACTIVE = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_AFFLICTION_NAME_ACTIVE,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = self.FONT_SPACING_AFFLICTION_ACTIVE,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_AFFLICTION_VALUE = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontSize = self.FONT_SIZE_AFFLICTION_VALUE,
+    fontColor = self.COLOR_GRAY_90,
+    characterSpacing = self.FONT_SPACING_AFFLICTION_VALUE,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_PINNED_OBJECTIVE_TITLE = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_BOLD,
+    fontSize = self.FONT_SIZE_BODY_NEW,
+    fontColor = self.COLOR_YELLOW,
+    characterSpacing = 0,
+    fontEffect = self.FONT_EFFECT_DROP_SHADOW
+  }
+  self.FONT_STYLE_PINNED_OBJECTIVE_TASK = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = self.FONT_SIZE_PINNED_OBJECTIVE_TASK,
+    fontColor = self.COLOR_GRAY_90,
+    characterSpacing = 0,
+    fontEffect = self.FONT_EFFECT_OUTLINE_FAINT
+  }
+  self.FONT_STYLE_PINNED_OBJECTIVE_TASK_NUMBERS = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = self.FONT_SIZE_PINNED_OBJECTIVE_TASK_NUMBERS,
+    fontColor = self.COLOR_GRAY_90,
+    characterSpacing = 0,
+    fontEffect = self.FONT_EFFECT_OUTLINE_FAINT
+  }
+  self.FONT_STYLE_PINNED_OBJECTIVE_NUMERATOR = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_CONDENSED_BOLD,
+    fontSize = self.FONT_SIZE_BODY_NEW,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    fontEffect = self.FONT_EFFECT_OUTLINE_FAINT
+  }
+  self.FONT_STYLE_PINNED_OBJECTIVE_DENOMINATOR = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_CONDENSED_REGULAR,
+    fontSize = self.FONT_SIZE_BODY_NEW,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    fontEffect = self.FONT_EFFECT_OUTLINE_FAINT
+  }
+  self.FONT_STYLE_OBJECTIVE_JOURNAL_OBJECTIVE = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 24,
+    fontColor = self.COLOR_TAN_LIGHT,
+    characterSpacing = 50
+  }
+  self.FONT_STYLE_OBJECTIVE_JOURNAL_REWARDS = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontSize = 26,
+    fontColor = self.COLOR_TAN_LIGHT,
+    characterSpacing = 50
+  }
+  self.FONT_STYLE_JOURNAL_HEADER = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 32,
+    fontColor = self.COLOR_TAN_HEADER_SECONDARY,
+    characterSpacing = 125,
+    textCasing = self.TEXT_CASING_UPPER,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_JOURNAL_PAGE_TITLE = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 32,
+    fontColor = self.COLOR_TAN_HEADER_SECONDARY,
+    characterSpacing = 125,
+    textCasing = self.TEXT_CASING_UPPER,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_JOURNAL_PAGE_SUBTITLE = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR_ITALIC,
+    fontSize = 26,
+    fontColor = self.COLOR_GRAY_90,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_JOURNAL_BODY = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = 24,
+    fontColor = self.COLOR_GRAY_90,
+    characterSpacing = 25,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_JOURNAL_UNDISCOVERED = {
+    fontFamily = self.FONT_FAMILY_PICA_ITALIC,
+    fontSize = 32,
+    fontColor = self.COLOR_GRAY_80,
+    characterSpacing = 50
+  }
+  self.FONT_STYLE_LARGE_TAB_PRIMARY = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontColor = self.COLOR_TAN,
+    characterSpacing = self.FONT_SPACING_LARGE_TAB_PRIMARY,
+    textCasing = self.TEXT_CASING_UPPER,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_LARGE_TAB_SECONDARY = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontColor = self.COLOR_GRAY_80,
+    characterSpacing = self.FONT_SPACING_LARGE_TAB_SECONDARY
+  }
+  self.FONT_STYLE_LARGE_TAB_NUMBER = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontColor = self.COLOR_GRAY_80,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_EDIT_BUTTON = self.FONT_STYLE_BUTTON_SIMPLE
+  self.FONT_STYLE_BUTTON_SIMPLE_CTA = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_BOLD,
+    fontSize = self.FONT_SIZE_BUTTON_SIMPLE,
+    fontColor = self.COLOR_BLACK,
+    fontEffect = ""
+  }
+  self.FONT_STYLE_GUILD_NAME_LARGE = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_GUILD_NAME_LARGE,
+    fontColor = self.COLOR_TAN,
+    characterSpacing = self.FONT_SPACING_GUILD_NAME_LARGE,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_GUILD_STAT_LABEL = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 22,
+    fontColor = self.COLOR_TAN,
+    characterSpacing = 50,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_GUILD_STAT_NUMBER = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontSize = 50,
+    fontColor = self.COLOR_GRAY_80
+  }
+  self.FONT_STYLE_GUILD_STAT_TEXT = {
+    fontFamily = self.FONT_FAMILY_PICA_ITALIC,
+    fontSize = 36,
+    fontColor = self.COLOR_GRAY_80
+  }
+  self.FONT_STYLE_GUILD_BUTTON_SETCONQUEST = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_SEMIBOLD,
+    fontSize = 18,
+    fontColor = self.COLOR_BLACK
+  }
+  self.FONT_STYLE_GUILD_SETSIEGEWINDOW = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 30,
+    characterSpacing = self.FONT_SPACING_CRAFTING_FAMILY,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_GUILD_BUTTON_COUNTER = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 18,
+    fontColor = self.COLOR_TAN,
+    characterSpacing = 50,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_TUTORIAL_TOAST_HEADER = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_TUTORIAL_TOAST_HEADER,
+    fontColor = self.COLOR_TAN,
+    characterSpacing = self.FONT_SPACING_TUTORIAL_TOAST_HEADER,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_TUTORIAL_TOAST_BODY = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = self.FONT_SIZE_TUTORIAL_TOAST_BODY,
+    fontColor = self.COLOR_WHITE
+  }
+  self.FONT_STYLE_TUTORIAL_TOAST_KEYBIND = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_TUTORIAL_TOAST_KEYBIND,
+    fontColor = self.COLOR_TAN,
+    characterSpacing = self.FONT_SPACING_HEADER_SMALL_CAPS,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_ARCHETYPE_HEADER = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_ARCHETYPE_HEADER,
+    fontColor = self.COLOR_TAN,
+    characterSpacing = self.FONT_SPACING_ARCHETYPE_HEADER,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_ARCHETYPE_SUBHEADER = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_ARCHETYPE_SUBHEADER,
+    fontColor = self.COLOR_TAN,
+    characterSpacing = self.FONT_SPACING_ARCHETYPE_SUBHEADER,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_ARCHETYPE_BODY = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = self.FONT_SIZE_ARCHETYPE_BODY,
+    fontColor = self.COLOR_WHITE
+  }
+  self.FONT_STYLE_ARCHETYPE_SKILLS = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = self.FONT_SIZE_ARCHETYPE_SKILLS,
+    fontColor = self.COLOR_WHITE
+  }
+  self.FONT_STYLE_DEATHS_DOOR_HEADER = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_DEATHS_DOOR_HEADER,
+    fontColor = self.COLOR_RED,
+    characterSpacing = self.FONT_SPACING_BUTTON,
+    fontEffect = self.FONT_EFFECT_OUTLINE_FAINT,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_DEATHS_DOOR_REVIVE = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = self.FONT_SIZE_DEATHS_DOOR_REVIVE,
+    fontColor = self.COLOR_GRAY_80,
+    fontEffect = self.FONT_EFFECT_OUTLINE_FAINT
+  }
+  self.FONT_STYLE_DEATHS_DOOR_RESPAWN = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = self.FONT_SIZE_DEATHS_DOOR_RESPAWN,
+    fontColor = self.COLOR_WHITE,
+    fontEffect = self.FONT_EFFECT_OUTLINE_FAINT
+  }
+  self.FONT_STYLE_DEATHS_DOOR_DUNGEON_HEADER = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_DEATHS_DOOR_DUNGEON_HEADER,
+    fontColor = self.COLOR_WHITE
+  }
+  self.FONT_STYLE_DEATHS_DOOR_DUNGEON_COUNT = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontSize = self.FONT_SIZE_DEATHS_DOOR_DUNGEON_COUNT,
+    fontColor = self.COLOR_WHITE
+  }
+  self.FONT_STYLE_PERMISSIONS_SUBHEADER = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_PERMISSIONS_SUBHEADER,
+    fontColor = self.COLOR_TAN,
+    characterSpacing = self.FONT_SPACING_HEADER_SMALL_CAPS,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_PERMISSIONS = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = self.FONT_SIZE_PERMISSIONS,
+    fontColor = self.COLOR_GRAY_80
+  }
+  self.FONT_STYLE_RADIO_TAB = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_RADIO_TAB,
+    fontColor = self.COLOR_TAN,
+    characterSpacing = self.FONT_SPACING_BUTTON,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_RADIO_TAB_PREFIX = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontSize = self.FONT_SIZE_RADIO_TAB_PREFIX,
+    fontColor = self.COLOR_TAN_DARK
+  }
+  self.FONT_STYLE_FLYOUT_LABEL_HEADER = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 44,
+    fontColor = self.COLOR_TAN
+  }
+  self.FONT_STYLE_FLYOUT_LABEL = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 22,
+    fontColor = self.COLOR_TAN
+  }
+  self.FONT_STYLE_FLYOUT_BUTTON = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 22,
+    fontColor = self.COLOR_TAN,
+    characterSpacing = 100,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_FLYOUT_WARBUTTON_BIG = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 22,
+    fontColor = self.COLOR_TAN,
+    characterSpacing = 50,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_FLYOUT_WARBUTTON_SMALL = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_SEMIBOLD,
+    fontSize = 22,
+    fontColor = self.COLOR_TAN,
+    characterSpacing = -30,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_SUBARMY_BUTTONSTART = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 40,
+    characterSpacing = self.FONT_SPACING_CRAFTING_FAMILY,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_SUBARMY_BUTTONREQUEST = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 18,
+    characterSpacing = 50,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_SUBARMY_BUTTONCONTINUE = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 30,
+    characterSpacing = self.FONT_SPACING_CRAFTING_FAMILY,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_SUBARMY_BUTTONGROUP = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 20,
+    characterSpacing = 50,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_SUBARMY_BUTTONEND = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 24,
+    characterSpacing = 50,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_CONTRACTS_REFRESH = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_SEMIBOLD,
+    fontSize = 20,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_CONTRACTS_SUB_1 = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 20,
+    textCasing = self.TEXT_CASING_UPPER,
+    characterSpacing = 100
+  }
+  self.FONT_STYLE_CONTRACTS_SUB_2 = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_SEMIBOLD,
+    fontSize = 20,
+    textCasing = self.TEXT_CASING_NORMAL,
+    characterSpacing = 0
+  }
+  self.FONT_STYLE_CONTRACTS_SUB_3 = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_SEMIBOLD,
+    fontSize = 20,
+    textCasing = self.TEXT_CASING_NORMAL,
+    characterSpacing = 0
+  }
+  self.FONT_STYLE_CONTRACTS_SUB_4 = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_SEMIBOLD,
+    fontSize = 20,
+    textCasing = self.TEXT_CASING_NORMAL,
+    characterSpacing = 0
+  }
+  self.FONT_STYLE_CONTRACTS_SUB_5 = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_SEMIBOLD,
+    fontSize = 20,
+    textCasing = self.TEXT_CASING_NORMAL,
+    characterSpacing = 0
+  }
+  self.FONT_STYLE_CONTRACTS_PLACEBUTTON = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 20,
+    textCasing = self.TEXT_CASING_UPPER,
+    characterSpacing = 100
+  }
+  self.FONT_STYLE_CONTRACTS_BUYBUTTON = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 24,
+    textCasing = self.TEXT_CASING_UPPER,
+    characterSpacing = 100
+  }
+  self.FONT_STYLE_CONTRACTS_PLACEBUTTON_LARGE = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 26,
+    textCasing = self.TEXT_CASING_UPPER,
+    characterSpacing = 100
+  }
+  self.FONT_STYLE_CONTRACTS_BACK = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_SEMIBOLD,
+    fontSize = 18,
+    textCasing = self.TEXT_CASING_UPPER,
+    characterSpacing = 100,
+    fontColor = self.COLOR_GRAY_70
+  }
+  self.FONT_STYLE_CONFIRMATION_POPUP_TITLE = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 24,
+    textCasing = self.TEXT_CASING_UPPER,
+    characterSpacing = 100,
+    fontColor = self.COLOR_WHITE,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_CONFIRMATION_POPUP_TEXT = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = 23,
+    textCasing = self.TEXT_CASING_NORMAL,
+    characterSpacing = 0,
+    fontColor = self.COLOR_GRAY_80
+  }
+  self.FONT_STYLE_TERRITORYINFO_EDIT = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 22,
+    textCasing = self.TEXT_CASING_UPPER,
+    characterSpacing = 100
+  }
+  self.FONT_STYLE_TERRITORYINFO_ACCEPT = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_BOLD,
+    fontSize = 18,
+    textCasing = self.TEXT_CASING_UPPER,
+    characterSpacing = 100
+  }
+  self.FONT_STYLE_TERRITORYINFO_BUTTON = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 24,
+    textCasing = self.TEXT_CASING_UPPER,
+    characterSpacing = 100
+  }
+  self.FONT_STYLE_HOUSING_ENTER_BUTTON_BIG = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 20,
+    textCasing = self.TEXT_CASING_UPPER,
+    characterSpacing = 100
+  }
+  self.FONT_STYLE_TERRITORY_STANDING_BUTTON = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 23,
+    textCasing = self.TEXT_CASING_UPPER,
+    characterSpacing = 100
+  }
+  self.FONT_STYLE_FORTRESS_STANDING_BUTTON = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 26,
+    textCasing = self.TEXT_CASING_UPPER,
+    characterSpacing = 75
+  }
+  self.FONT_STYLE_TOWNPROJECT_COMPLETE_BUTTON = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontColor = self.COLOR_WHITE,
+    fontSize = 18,
+    textCasing = self.TEXT_CASING_UPPER,
+    characterSpacing = 100
+  }
+  self.FONT_STYLE_TOWNPROJECT_TOOLTIP_BUTTON = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 22,
+    textCasing = self.TEXT_CASING_UPPER,
+    characterSpacing = 100
+  }
+  self.FONT_STYLE_ABILITY_TOOLTIP_HEADER = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = self.FONT_SIZE_HEADER_SMALL_CAPS,
+    fontColor = self.COLOR_TAN,
+    characterSpacing = 100,
+    textCasing = self.TEXT_CASING_UPPER,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_ABILITY_TOOLTIP_DESCRIPTION = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = 22,
+    fontColor = self.COLOR_GRAY_80
+  }
+  self.FONT_STYLE_ABILITY_TOOLTIP_DURATION = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = 22,
+    fontColor = self.COLOR_GRAY_80
+  }
+  self.FONT_STYLE_FACTIONMISSION_SHOP_BUTTON = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 24,
+    textCasing = self.TEXT_CASING_UPPER,
+    characterSpacing = 100
+  }
+  self.FONT_STYLE_FACTIONMISSION_UNLOCK_BUTTON = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 28,
+    textCasing = self.TEXT_CASING_UPPER,
+    characterSpacing = 0
+  }
+  self.FONT_STYLE_RAID_SIGNUP_LEVEL = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_SEMIBOLD,
+    fontSize = 22,
+    textCasing = self.TEXT_CASING_NORMAL,
+    characterSpacing = 0
+  }
+  self.FONT_STYLE_RAID_TOGGLE = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 16,
+    textCasing = self.TEXT_CASING_UPPER,
+    characterSpacing = 100
+  }
+  self.FONT_STYLE_RAID_BUTTON = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_BOLD,
+    fontSize = 16,
+    textCasing = self.TEXT_CASING_UPPER,
+    characterSpacing = 100
+  }
+  self.FONT_STYLE_RAID_MANAGE = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 20,
+    textCasing = self.TEXT_CASING_UPPER,
+    characterSpacing = 100
+  }
+  self.FONT_STYLE_WARBOARD_BANNER_FACTION = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 36,
+    characterSpacing = 125,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_WARBOARD_BANNER_EVENTRESULT = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 38,
+    characterSpacing = 150
+  }
+  self.FONT_STYLE_WARBOARD_BANNER_EVENTROLE = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 32,
+    characterSpacing = 150
+  }
+  self.FONT_STYLE_WARBOARD_BANNER_COMPANYNAME_LABEL = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 20,
+    textCasing = self.TEXT_CASING_UPPER,
+    characterSpacing = 30
+  }
+  self.FONT_STYLE_WARBOARD_BANNER_COMPANYNAME = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_BOLD,
+    fontSize = 34
+  }
+  self.FONT_STYLE_WARBOARD_PLAYERSTAT_STATNAME = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = 40
+  }
+  self.FONT_STYLE_WARBOARD_PLAYERSTAT_VALUE = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontSize = 70
+  }
+  self.FONT_STYLE_WARBOARD_PERFORMANCE_STATNAME = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = 24
+  }
+  self.FONT_STYLE_WARBOARD_PERFORMANCE_VALUE = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = 24
+  }
+  self.FONT_STYLE_WARBOARD_PERFORMANCE_PLAYERNAME = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = 32,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_WARBOARD_PERFORMANCE_PLAYERSCORE = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontSize = 50
+  }
+  self.FONT_STYLE_WARBOARD_PLAYERHEADER_NAME = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 30
+  }
+  self.FONT_STYLE_WARBOARD_PLAYERHEADER_SCORE = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontSize = 35
+  }
+  self.FONT_STYLE_WARBOARD_STANDOUT_LINE = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = 24
+  }
+  self.FONT_STYLE_WARBOARD_INVASION_LABEL = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 24,
+    textCasing = self.TEXT_CASING_UPPER,
+    characterSpacing = 30
+  }
+  self.FONT_STYLE_WARBOARD_INVASION_LOCATION = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 32,
+    textCasing = self.TEXT_CASING_UPPER,
+    characterSpacing = 30
+  }
+  self.FONT_STYLE_WARBOARD_COUNTDOWN_TIMER = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_CONDENSED_BOLD,
+    fontSize = 24
+  }
+  self.FONT_STYLE_FACTIONCONTROL_HEADER = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 18,
+    fontColor = self.COLOR_TAN_MEDIUM_LIGHT,
+    textCasing = self.TEXT_CASING_UPPER,
+    characterSpacing = 150
+  }
+  self.FONT_STYLE_FACTIONCONTROL_BODY_TEXT = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = 22,
+    fontColor = self.COLOR_TAN_LIGHT,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_FACTIONCONTROL_STATUS_TEXT = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = 23,
+    fontColor = self.COLOR_TAN,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_FACTIONCONTROL_LINEITEM_HEADER = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 25,
+    fontColor = self.COLOR_TAN_MEDIUM_LIGHT,
+    textCasing = self.TEXT_CASING_UPPER,
+    characterSpacing = 0
+  }
+  self.FONT_STYLE_FACTIONCONTROL_LINEITEM = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = 23,
+    fontColor = self.COLOR_WHITE,
+    textCasing = self.TEXT_CASING_NORMAL,
+    characterSpacing = 0
+  }
+  self.FONT_STYLE_FACTIONCONTROL_SUB_HEADER = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_SEMIBOLD,
+    fontSize = 22,
+    fontColor = self.COLOR_TAN_MEDIUM_LIGHT,
+    textCasing = self.TEXT_CASING_NORMAL,
+    characterSpacing = 0
+  }
+  self.FONT_STYLE_FACTIONCONTROL_BONUSITEM = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = 23,
+    fontColor = self.COLOR_WHITE,
+    textCasing = self.TEXT_CASING_NORMAL,
+    characterSpacing = 0
+  }
+  self.FONT_STYLE_FACTIONCONTROL_CONTESTED_BODY_TEXT = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = 23,
+    fontColor = self.COLOR_CONTESTED_RED,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_FACTIONCONTROL_HUD_STATUS = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = 32,
+    fontColor = self.COLOR_WHITE,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_MAP_ENCOUNTER_BUTTON = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_SEMIBOLD,
+    fontSize = 16,
+    textCasing = self.TEXT_CASING_UPPER,
+    characterSpacing = 100
+  }
+  self.FONT_STYLE_ARENA_BUTTON = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 28,
+    textCasing = self.TEXT_CASING_UPPER,
+    characterSpacing = 100
+  }
+  self.FONT_STYLE_FISHING_ACTION_TEXT = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = 28,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_FISHING_INDICATOR_TEXT = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 24,
+    textCasing = self.TEXT_CASING_UPPER,
+    characterSpacing = 200
+  }
+  self.FONT_STYLE_FISHING_BOBBER_ACTION = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_SEMIBOLD,
+    fontSize = 24,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_FISHING_DISTANCE_TEXT = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = 22,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_FISHING_DEPTH_TEXT = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = 22,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_FISHING_TENSION = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 18,
+    textCasing = self.TEXT_CASING_UPPER,
+    characterSpacing = 150
+  }
+  self.FONT_STYLE_FISHING_TENSION_DISTANCE = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontSize = 20,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_FISHING_BAIT_NAME = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 22,
+    textCasing = self.TEXT_CASING_UPPER,
+    characterSpacing = 150
+  }
+  self.FONT_STYLE_FISHING_BAIT_BENEFIT = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = 22,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_FISHING_SUCCESS = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 26,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_ACHIEVEMENT_CARD_PROMPT = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_SEMIBOLD,
+    fontSize = 26,
+    fontColor = self.COLOR_WHITE,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_OBJECTIVE_DETAILS_REWARD_LABEL = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 14,
+    fontColor = self.COLOR_TAN_LIGHT,
+    characterSpacing = 150,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_OBJECTIVE_DETAILS_REWARD_NAME = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_BOLD,
+    fontSize = 20,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_GATHERING_ITEM_TITLE = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_SEMIBOLD,
+    fontSize = self.FONT_SIZE_TITLE,
+    fontColor = self.COLOR_GRAY_90,
+    characterSpacing = self.FONT_SPACING_BODY_NEW,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_STORE_FEATURED_TITLE = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 30,
+    fontColor = self.COLOR_GRAY_80,
+    characterSpacing = 100,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_STORE_ORDER_HISTORY_BUTTON = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_SEMIBOLD,
+    fontSize = 22,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_STORE_ADD_BUTTON = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_BOLD,
+    fontSize = 22,
+    fontColor = self.COLOR_BLACK,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = ""
+  }
+  self.FONT_STYLE_STORE_SEARCH_TEXT = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = 24,
+    fontColor = self.COLOR_GRAY_80,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_STORE_ITEM_TITLE_SMALL = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 24,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 100,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_STORE_ITEM_TITLE_MEDIUM = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 30,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 100,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_STORE_ITEM_TITLE_LARGE = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 34,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 100,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_STORE_REWARD_INFO = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = 22,
+    fontColor = self.COLOR_GRAY_70,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_STORE_ITEM_DESCRIPTION = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = 24,
+    fontColor = self.COLOR_GRAY_80,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_STORE_UNLOCKED_TEXT_SMALL = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontColor = self.COLOR_GREEN,
+    characterSpacing = 100,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_STORE_FINAL_PRICE_FEATURED = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontSize = 54,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_STORE_INITIAL_PRICE_FEATURED = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontSize = 24,
+    fontColor = self.COLOR_GRAY_50,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_STORE_FINAL_PRICE = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontSize = 34,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_STORE_INITIAL_PRICE = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontSize = 24,
+    fontColor = self.COLOR_GRAY_50,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_STORE_FICTIONAL_CURRENCY_TEXT = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontSize = 36,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_STORE_FINAL_PRICE_PORTRAIT = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontSize = 50,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_STORE_REWARD_AMOUNT = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontSize = 82,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_STORE_BONUS_AMOUNT = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_SEMIBOLD,
+    fontSize = 22,
+    fontColor = self.COLOR_YELLOW,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_STORE_TIME_INFO = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_SEMIBOLD,
+    fontSize = 24,
+    fontColor = self.COLOR_YELLOW,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_STORE_DISCOUNT_TEXT = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_STORE_LIMITED_OFFER_TEXT = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontColor = self.COLOR_BLACK,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = ""
+  }
+  self.FONT_STYLE_STORE_REFUND_TEXT = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = 22,
+    fontColor = self.COLOR_YELLOW,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_STORE_DISCLAIMER_TEXT = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = 22,
+    fontColor = self.COLOR_TAN,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_STORE_OFFER_ITEM_TITLE = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 28,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 100,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_STORE_OFFER_REWARD_INFO = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = 24,
+    fontColor = self.COLOR_GRAY_80,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_STORE_POPUP_NEW_BALANCE_LABEL = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = 22,
+    fontColor = self.COLOR_TAN,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_STORE_POPUP_NEW_BALANCE = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontSize = 28,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_STORE_POPUP_ITEM_TITLE = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 32,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_STORE_ESCAPE_ITEM_TITLE = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 24,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 100,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_STORE_ESCAPE_REWARD_INFO = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = 22,
+    fontColor = self.COLOR_GRAY_70,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_STORE_ESCAPE_FINAL_PRICE = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontSize = 34,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_STORE_ESCAPE_TIME_INFO = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_SEMIBOLD,
+    fontSize = 24,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_STORE_CELEBRATION_QUANTITY = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontSize = 30,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_STORE_CELEBRATION_HEADER = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 30,
+    fontColor = self.COLOR_TAN_LIGHT,
+    characterSpacing = 150,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_STORE_CELEBRATION_ITEM_TITLE = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 38,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 200,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_STORE_CELEBRATION_ITEM_TYPE = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 24,
+    fontColor = self.COLOR_TAN,
+    characterSpacing = 100,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_STORE_PORTRAIT_ITEM_TITLE = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 28,
+    fontColor = self.COLOR_TAN,
+    characterSpacing = 100,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_STORE_SPECIAL_DISCOUNT_TEXT = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_BOLD,
+    fontSize = 32,
+    fontColor = self.COLOR_ORANGE_DARK,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = ""
+  }
+  self.FONT_STYLE_STORE_CONTEXT_TEXT = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = 24,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_CHECKBOX_TEXT = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = 24,
+    fontColor = self.COLOR_TAN_LIGHT,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_TOOLTIP_DISCOUNT_DISABLED = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = 26,
+    fontColor = self.COLOR_GRAY_50,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_TOOLTIP_DISCOUNT_APPLIED = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = 26,
+    fontColor = self.COLOR_SKYBLUE,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_MILESTONE_CURRENT_LEVEL = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 44,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 100,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_MILESTONE_CURRENT_LEVEL_LABEL = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 26,
+    fontColor = self.COLOR_GRAY_70,
+    characterSpacing = 100,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_MILESTONE_LEVEL = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontSize = 44,
+    characterSpacing = 25,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_MILESTONE_TERRITORY_LABEL = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 24,
+    fontColor = self.COLOR_TAN,
+    characterSpacing = 100,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_MILESTONE_TERRITORY_TEXT = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = 24,
+    fontColor = self.COLOR_TAN_MEDIUM,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_MILESTONE_REWARD_NAME = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = 24,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_BANNER_TERRITORY_HEADER = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 23,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 150,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_BANNER_TERRITORY_TEXT = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 32,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 150,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_BANNER_DIFFICULTY_LABEL = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_SEMIBOLD,
+    fontSize = 18,
+    fontColor = self.COLOR_WHITE,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_COMPASS_POI_NAME = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 19,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = self.FONT_SPACING_HEADER,
+    textCasing = self.TEXT_CASING_UPPER,
+    fontEffect = self.FONT_EFFECT_OUTLINE_FAINT
+  }
+  self.FONT_STYLE_COMPASS_DISTANCE_TEXT = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_SEMIBOLD,
+    fontSize = 20,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = self.FONT_SPACING_BODY_NEW,
+    textCasing = self.TEXT_CASING_NORMAL,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_REWARDSCREEN_HEADING = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 84,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 100,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_REWARDSCREEN_NO_REWARDS = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = 26,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_REWARDSCREEN_REWARD_ITEM = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 28,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 100,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_REWARDSCREEN_REWARD_LABEL = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 24,
+    fontColor = self.COLOR_TAN,
+    characterSpacing = 100,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_REWARDSCREEN_REWARD_MILESTONE = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontSize = 55,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 100,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_REWARDSCREEN_SUBHEADING = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 30,
+    fontColor = self.COLOR_TAN,
+    characterSpacing = 100
+  }
+  self.FONT_STYLE_ACHIEVEMENTS_BODYTEXT = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = 23,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_ACHIEVEMENTS_TREE_PARENT = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_SEMIBOLD,
+    fontSize = 25,
+    fontColor = self.COLOR_YELLOW_GOLD,
+    characterSpacing = 0,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_ACHIEVEMENTS_TREE_CHILD = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = 23,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_ACHIEVEMENTS_SUMMARY_HEADING = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 23,
+    fontColor = self.COLOR_TAN_LIGHT,
+    characterSpacing = 100,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_ACHIEVEMENTS_ITEM_TITLE = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_SEMIBOLD,
+    fontSize = 25,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_ACHIEVEMENTS_PROGRESS_TITLE = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_SEMIBOLD,
+    fontSize = 24,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_ACHIEVEMENTS_FRACTION_COUNT = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontSize = 22,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_ACHIEVEMENTS_PROGRESS_FRACTION_COUNT = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontSize = 28,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_ACHIEVEMENTS_ITEM_YELLOWTEXT = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = 23,
+    fontColor = self.COLOR_BRIGHT_YELLOW,
+    characterSpacing = 0,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_ACHIEVEMENTS_ITEM_HIDDENTEXT = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR_ITALIC,
+    fontSize = 23,
+    fontColor = self.COLOR_TAN_LIGHT,
+    characterSpacing = 0,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_ACHIEVEMENTS_TOTAL_PERCENT = {
+    fontFamily = self.FONT_FAMILY_CASLON,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_ACHIEVEMENTS_REWARDS_TITLE = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 30,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_ACHIEVEMENTS_TO_CLAIM = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_BOLD,
+    fontSize = 30,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_DUNGEON_TITLE = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 52,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 150,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_DUNGEON_SUBHEADER = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 28,
+    fontColor = self.COLOR_TAN,
+    characterSpacing = 120,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_DUNGEON_DESCTEXT = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = 28,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0
+  }
+  self.FONT_STYLE_DUNGEON_BODYTEXT = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = 24,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0
+  }
+  self.FONT_STYLE_DUNGEON_TIMERTEXT = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_BOLD,
+    fontSize = 24,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0
+  }
+  self.FONT_STYLE_FLYOUT_MAP_POI_HEADER = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 32,
+    fontColor = self.COLOR_TAN_LIGHT,
+    characterSpacing = 0,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_FLYOUT_MAP_POI_SUBTEXT = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = 22,
+    fontColor = self.COLOR_TAN_MEDIUM_LIGHT,
+    characterSpacing = 0,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_FLYOUT_MAP_POI_STATUSTEXT = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = 20,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_FLYOUT_BUTTON_TEXT = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_SEMIBOLD,
+    fontSize = 24,
+    characterSpacing = 0,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.STANDARD_BODY_TEXT = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = 20,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.STANDARD_BODY_TEXT_GREEN = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = 20,
+    fontColor = self.COLOR_GREEN_BRIGHT,
+    characterSpacing = 0,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.STANDARD_BODY_TEXT_RED = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = 20,
+    fontColor = self.COLOR_RED_LIGHT,
+    characterSpacing = 0,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.STANDARD_BODY_TEXT_TAN = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_MEDIUM,
+    fontSize = 20,
+    fontColor = self.COLOR_TAN,
+    characterSpacing = 0,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.STANDARD_BODY_TEXT_SEMIBOLD = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_SEMIBOLD,
+    fontSize = 20,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.STANDARD_BODY_TEXT_SEMIBOLD_TAN = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_SEMIBOLD,
+    fontSize = 20,
+    fontColor = self.COLOR_TAN,
+    characterSpacing = 0,
+    fontEffect = self.FONT_EFFECT_DROPSHADOW
+  }
+  self.FONT_STYLE_TITLES_LIST_NAME = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = 25,
+    fontColor = self.COLOR_FLAVOR_TEXT,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_TITLES_LIST_CURRENT = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_SEMIBOLD,
+    fontSize = 20,
+    fontColor = self.COLOR_YELLOW,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_TITLES_PRONOUN_TITLE = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = 24,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_TITLES_CURRENT_TITLE_LABEL = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR_ITALIC,
+    fontSize = 24,
+    fontColor = self.COLOR_FLAVOR_TEXT,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_TITLES_CURRENT_TITLE = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = 24,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_TITLES_SECTION_HEADER = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 26,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 150,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_SURVEY_MESSAGE = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = 25,
+    fontColor = self.COLOR_TAN_LIGHT,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_SURVEY_STAR_DESC = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 20,
+    characterSpacing = 80,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_SERVER_TRANSFER_REGION_LABEL = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 24,
+    fontColor = self.COLOR_GRAY_90,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_SERVER_TRANSFER_REGION_NAME = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_SEMIBOLD,
+    fontSize = 26,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_SERVER_TRANSFER_TEXT = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = 28,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.FONT_STYLE_SERVER_TRANSFER_SUBHEADER = {
+    fontFamily = self.FONT_FAMILY_PICA,
+    fontSize = 28,
+    fontColor = self.COLOR_TAN_LIGHT,
+    characterSpacing = 100,
+    textCasing = self.TEXT_CASING_UPPER
+  }
+  self.FONT_STYLE_SERVER_TRANSFER_BODY = {
+    fontFamily = self.FONT_FAMILY_NIMBUS_REGULAR,
+    fontSize = 24,
+    fontColor = self.COLOR_WHITE,
+    characterSpacing = 0,
+    textCasing = self.TEXT_CASING_NORMAL
+  }
+  self.ITEM_LAYOUT_RECTANGLE = 1
+  self.ITEM_LAYOUT_CIRCLE = 2
+  self.ITEM_LAYOUT_SQUARE = 3
+  self.ITEM_LAYOUT_RECTANGLE_WIDTH = 122
+  self.ITEM_LAYOUT_RECTANGLE_HEIGHT = 60
+  self.ITEM_LAYOUT_RECTANGLE_LARGE_WIDTH = 204
+  self.ITEM_LAYOUT_RECTANGLE_LARGE_HEIGHT = 100
+  self.ITEM_LAYOUT_CIRCLE_WIDTH = 60
+  self.ITEM_LAYOUT_CIRCLE_HEIGHT = 60
+  self.ITEM_LAYOUT_SQUARE_WIDTH = 60
+  self.ITEM_LAYOUT_SQUARE_HEIGHT = 60
+  self.ITEM_LAYOUT_BANNER_SQUARE = 54
+  self.DURATION_FTUE_OUTRO = 0.4
+  self.DURATION_BUTTON_FADE_IN = 0.1
+  self.DURATION_BUTTON_FADE_IN_HOLD = 0.1
+  self.DURATION_BUTTON_FADE_OUT = 0.2
+  self.DURATION_TIMELINE_FADE_IN = 0.35
+  self.DURATION_TIMELINE_HOLD = 0.05
+  self.DURATION_TIMELINE_FADE_OUT = 0.3
+  self.ANIM_TEST = {
+    duration = 1.5,
+    y = 500,
+    isFrom = true,
+    easeMethod = ScriptedEntityTweenerEasingMethod_Cubic
+  }
+  self.BACKGROUND_ALPHA = 0.8
+  self.BLUR_DEPTH_OF_FIELD = 0
+  self.BLUR_AMOUNT = 1
+  self.BLUR_NEAR_DISTANCE = 1
+  self.BLUR_NEAR_SCALE = 3
+  self.RANGE_DEPTH_OF_FIELD = 0
+  self.ICONS_GROUP_MEMBERS = {
+    "lyshineui/images/markers/marker_iconParty1.dds",
+    "lyshineui/images/markers/marker_iconParty2.dds",
+    "lyshineui/images/markers/marker_iconParty3.dds",
+    "lyshineui/images/markers/marker_iconParty4.dds",
+    "lyshineui/images/markers/marker_iconParty5.dds"
+  }
+end
+function CreateUIStyle(table)
+  table:Init()
+end
+CreateUIStyle(UIStyle)
+return UIStyle
